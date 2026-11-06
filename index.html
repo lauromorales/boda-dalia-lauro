@@ -302,7 +302,7 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
         <div class="caja">
           <div class="pantalla">
             <div class="foto">
-              <video id="video-tele" src="video.mp4" poster="video-portada.jpg" muted loop playsinline preload="metadata"></video>
+              <video id="video-tele" src="video.mp4" poster="video-portada.jpg" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture></video>
             </div>
           </div>
           <div class="panel" aria-hidden="true"><i class="perilla"></i><i class="perilla b"></i><i class="bocina"></i></div>
@@ -592,12 +592,26 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
     if(on) aviso('La música sonará cuando la invitación esté publicada 🎶');
   }
 
+  // Video de la tele
+  var video = document.getElementById('video-tele');
+  function reproducirVideo(){
+    if(!video) return;
+    video.muted = true; video.setAttribute('muted','');
+    var pr = video.play(); if(pr && pr.catch) pr.catch(function(){});
+  }
+  if(video){
+    // si el celular lo bloquea, un toque en la pantalla de la tele lo arranca
+    tele.querySelector('.pantalla').addEventListener('click', reproducirVideo);
+    document.addEventListener('visibilitychange', function(){ if(!document.hidden && root.classList.contains('listo')) reproducirVideo(); });
+  }
+
   function abrir(){
     if(abierto) return; abierto = true;
     var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     root.classList.add('abierto');
     setTimeout(function(){ root.classList.add('saliendo'); }, reducido ? 0 : 900);
-    setTimeout(function(){ root.classList.add('listo'); tele.classList.add('encender'); var v=document.getElementById('video-tele'); if(v){ try{ v.currentTime=0; }catch(e){} var pr=v.play(); if(pr&&pr.catch) pr.catch(function(){}); } }, reducido ? 0 : 1800);
+    reproducirVideo(); // dentro del toque, para que el iPhone lo permita
+    setTimeout(function(){ root.classList.add('listo'); tele.classList.add('encender'); reproducirVideo(); }, reducido ? 0 : 1800);
     if(ytListo || CANCION) tocarMusica(true);
   }
   sobre.addEventListener('click', abrir);
