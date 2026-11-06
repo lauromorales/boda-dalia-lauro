@@ -302,9 +302,7 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
         <div class="caja">
           <div class="pantalla">
             <div class="foto">
-              <!-- Aquí va su foto o video. Ejemplo:
-                   <video src="nosotros.mp4" autoplay muted loop playsinline></video> -->
-              Aquí va su foto<br>o video favorito
+              <video id="video-tele" src="video.mp4" poster="video-portada.jpg" muted loop playsinline preload="metadata"></video>
             </div>
           </div>
           <div class="panel" aria-hidden="true"><i class="perilla"></i><i class="perilla b"></i><i class="bocina"></i></div>
@@ -599,7 +597,7 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
     var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     root.classList.add('abierto');
     setTimeout(function(){ root.classList.add('saliendo'); }, reducido ? 0 : 900);
-    setTimeout(function(){ root.classList.add('listo'); tele.classList.add('encender'); }, reducido ? 0 : 1800);
+    setTimeout(function(){ root.classList.add('listo'); tele.classList.add('encender'); var v=document.getElementById('video-tele'); if(v){ try{ v.currentTime=0; }catch(e){} var pr=v.play(); if(pr&&pr.catch) pr.catch(function(){}); } }, reducido ? 0 : 1800);
     if(ytListo || CANCION) tocarMusica(true);
   }
   sobre.addEventListener('click', abrir);
