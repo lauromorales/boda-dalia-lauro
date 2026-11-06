@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Dalia y Lauro">
+<meta property="og:description" content="Nos casamos el 27 y 28 de febrero de 2027. Queremos que estés ahí.">
+<meta property="og:type" content="website">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Dalia y Lauro · Nuestra boda</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Nos casamos y queremos que estés ahí. 27 y 28 de febrero de 2027, Monterrey.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Oswald:wght@300;400;500&family=Pinyon+Script&family=Playwrite+MX:wght@300;400&display=swap">
+<style>
+/* Papelería del mood board: crema cálido, letra manuscrita monolínea para títulos (cada sección en un color de la paleta), monograma D·L en óvalo festoneado. Paleta fija, sin modo oscuro. */
+:root{
+  --guinda:#8f1734; --guinda-hondo:#6a0f26; --naranja:#e2650c; --naranja-osc:#b9500a;
+  --amarillo:#f0b43a; --amarillo-osc:#b97f0c; --verde:#5f8f2a; --olivo:#556030;
+  --crema:#fdf7ec; --papel:#f8efdf; --perla:#fffdf8;
+  --tinta:#3a1a1f; --tinta-suave:#6d5054; --linea:rgba(143,23,52,.16);
+  --madera:#6e4426; --madera-osc:#3f2414; --madera-clara:#9a6a42;
+  --titulo:"Bodoni Moda", Didot, "Bodoni 72", Georgia, serif;
+  --rotulo:"Oswald", "Arial Narrow", system-ui, sans-serif;
+  --script:"Pinyon Script", "Snell Roundhand", cursive;
+  --mano:"Playwrite MX", "Segoe Script", "Bradley Hand", cursive;
+  --t-titulo:clamp(26px,7vw,34px); --t-cuerpo:clamp(14.5px,3.8vw,16px); --t-nota:13px; --t-rotulo:11.5px;
+  --aire:clamp(56px,13vw,100px);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--crema);color:var(--tinta);font-family:var(--titulo);font-size:var(--t-cuerpo);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.doc{max-width:520px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));padding-bottom:90px}
+h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(--guinda);line-height:1.5;margin:0 0 20px;text-align:center;text-wrap:balance}
+.c-naranja{color:var(--naranja)} .c-verde{color:var(--verde)} .c-amarillo{color:var(--amarillo-osc)} .c-olivo{color:var(--olivo)}
+.rotulo{font-family:var(--rotulo);font-size:var(--t-rotulo);letter-spacing:.2em;text-transform:uppercase;color:var(--tinta-suave)}
+.bloque{padding-block:var(--aire) 0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.ilus{width:84px;height:auto;margin-bottom:6px}
+.boton{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 26px;border-radius:999px;background:var(--guinda);color:var(--perla);font-family:var(--rotulo);font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;box-shadow:0 6px 18px rgba(106,15,38,.22);transition:background .2s,transform .2s}
+.boton:hover{background:var(--guinda-hondo);transform:translateY(-1px)}
+.boton.verde{background:var(--olivo);box-shadow:0 6px 18px rgba(85,96,48,.25)}
+:focus-visible{outline:2px solid var(--naranja);outline-offset:3px}
+.papel-tex{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .28 0 0 0 0 .12 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ───── Entrada: sobre ───── */
+.entrada{min-height:calc(100svh - 40px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding-top:24px}
+.marca{text-align:center;display:none}
+.ovalo{width:min(56vw,220px);margin:0 auto;display:block}
+.nom{font-family:var(--titulo);font-size:clamp(20px,5.6vw,26px);letter-spacing:.2em;text-transform:uppercase;margin:14px 0 2px;color:var(--tinta)}
+.fec{font-family:var(--titulo);font-size:clamp(15px,4vw,18px);letter-spacing:.26em;color:var(--guinda);margin:0}
+.escenario{position:relative;width:100%;display:grid;place-items:center}
+.sobre{position:relative;width:96%;aspect-ratio:838/600;max-width:100%;perspective:1400px;cursor:pointer}
+.sobre .cuerpo{position:absolute;inset:0;background-color:#f4ead8;border-radius:4px;box-shadow:0 18px 30px -12px rgba(58,26,31,.35),0 2px 4px rgba(58,26,31,.12);overflow:hidden}
+.sobre .cuerpo::before,.sobre .cuerpo::after{content:"";position:absolute;inset:0}
+.sobre .cuerpo::before{background:linear-gradient(160deg,#ece0ca,#f6eddd);clip-path:polygon(0 0,50% 56%,0 100%)}
+.sobre .cuerpo::after{background:linear-gradient(200deg,#ece0ca,#f6eddd);clip-path:polygon(100% 0,50% 56%,100% 100%)}
+.sobre .frente{position:absolute;inset:0;background:linear-gradient(0deg,#f0e5d1,#f8f0e2);clip-path:polygon(0 100%,50% 50%,100% 100%);z-index:1}
+.sobre .solapa{position:absolute;left:0;right:0;top:0;height:62%;transform-origin:50% 0;transform-style:preserve-3d;z-index:3;transition:transform 1s cubic-bezier(.6,.05,.3,1)}
+.sobre .solapa::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#f8f0e4,#eadcc4);clip-path:polygon(0 0,100% 0,50% 100%);filter:drop-shadow(0 2px 2px rgba(58,26,31,.18));backface-visibility:hidden}
+.sobre .tex{position:absolute;inset:0;z-index:4;pointer-events:none;mix-blend-mode:multiply;border-radius:4px}
+.sello{position:absolute;left:50%;top:62%;width:24%;aspect-ratio:1;transform:translate(-50%,-50%);z-index:5;transition:opacity .4s,transform .5s}
+.sello svg{width:100%;height:100%;display:block;filter:drop-shadow(0 3px 4px rgba(106,15,38,.35))}
+.ramo{position:absolute;right:-9%;top:-26%;width:44%;z-index:6;pointer-events:none}
+.ramo svg{width:100%;height:auto;display:block}
+.abierto .sobre .solapa{transform:rotateX(180deg);z-index:0}
+.abierto .sello{opacity:0;transform:translate(-50%,-30%) scale(.8)}
+.saliendo .sobre{animation:baja .9s .1s ease-in forwards}
+@keyframes baja{to{transform:translateY(40px);opacity:0}}
+.abajo{text-align:center;min-height:56px}
+.aviso{font-family:var(--mano);color:var(--tinta-suave);margin:0;font-size:15px;animation:late 2.4s ease-in-out infinite}
+@keyframes late{50%{opacity:.45}}
+.desliza{display:none;flex-direction:column;align-items:center;gap:8px;color:var(--tinta-suave);text-decoration:none}
+.desliza span{width:1px;height:28px;background:var(--tinta-suave);animation:linea 1.8s ease-in-out infinite;transform-origin:top}
+@keyframes linea{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+/* Tele retro */
+.tele{display:none;width:92%;max-width:100%;position:relative;padding-bottom:9%}
+.tele .caja{position:relative;aspect-ratio:885/560;border-radius:5% / 7%;background:linear-gradient(180deg,var(--madera-clara),var(--madera) 18%,var(--madera) 80%,var(--madera-osc));box-shadow:inset 0 2px 0 rgba(255,255,255,.18),inset 0 -6px 12px rgba(0,0,0,.3),0 24px 30px -18px rgba(40,20,10,.55);display:grid;grid-template-columns:72% 1fr;gap:3%;padding:5.5% 4.5%}
+.tele .caja::after{content:"";position:absolute;inset:0;border-radius:inherit;background:repeating-linear-gradient(92deg,rgba(255,255,255,0) 0 7px,rgba(0,0,0,.05) 7px 9px);pointer-events:none}
+.pantalla{position:relative;border-radius:9% / 12%;overflow:hidden;background:#20140f;box-shadow:0 0 0 5px #2a1a10,0 0 0 7px #8a6a4a,inset 0 0 30px rgba(0,0,0,.8)}
+.pantalla .foto{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 70%,#f0a14a 0,#9a3a1c 42%,#2a1210 82%);display:grid;place-items:center;color:#fbe9cf;font-family:var(--rotulo);font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:10px}
+.pantalla .foto img,.pantalla .foto video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pantalla::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.14) 0 1px,transparent 1px 3px),radial-gradient(ellipse at 30% 20%,rgba(255,255,255,.22),transparent 45%);pointer-events:none}
+.encender .pantalla .foto{animation:prende 1.1s ease-out}
+@keyframes prende{0%{clip-path:inset(49.5% 0 49.5% 0);filter:brightness(3)}45%{clip-path:inset(49.5% 0 49.5% 0)}100%{clip-path:inset(0);filter:none}}
+.panel{display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:6% 0;border-radius:8px;background:linear-gradient(180deg,#3a2414,#2a190e);box-shadow:inset 0 0 0 2px #8a6a4a}
+.perilla{width:62%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 35%,#f1d9a0,#b98a3e 45%,#6e4f1e 75%);box-shadow:0 2px 4px rgba(0,0,0,.5),inset 0 0 0 3px rgba(0,0,0,.25);position:relative}
+.perilla::after{content:"";position:absolute;left:47%;top:12%;width:6%;height:36%;background:#3a2414;border-radius:2px}
+.perilla.b::after{transform:rotate(60deg);transform-origin:50% 105%}
+.bocina{width:70%;flex:1;margin-top:10%;border-radius:4px;background:repeating-linear-gradient(0deg,#1a0f08 0 2px,#a88a5c 2px 4px)}
+.patas{position:absolute;left:0;right:0;bottom:0;height:10%}
+.patas i{position:absolute;bottom:0;width:3.4%;height:100%;background:linear-gradient(90deg,var(--madera-osc),var(--madera-clara));border-radius:0 0 3px 3px}
+.patas i:nth-child(1){left:10%;transform:skewX(8deg)}
+.patas i:nth-child(2){right:10%;transform:skewX(-8deg)}
+.patas::before{content:"";position:absolute;left:6%;right:6%;bottom:-6px;height:12px;background:radial-gradient(ellipse,rgba(40,20,10,.28),transparent 70%)}
+
+/* ───── Carta ───── */
+.carta-zona{position:relative;width:100%;padding-bottom:150px}
+.carta{position:relative;background-color:var(--papel);padding:15% 8% 30%;clip-path:polygon(0 1%,4% 0,9% 1.2%,15% .3%,22% 1%,30% 0,37% .9%,45% .2%,53% 1.1%,61% .1%,68% 1%,76% .2%,84% 1.1%,91% .3%,96% 1%,100% .2%,99.4% 8%,100% 17%,99.2% 27%,100% 38%,99.4% 49%,100% 60%,99.3% 71%,100% 82%,99.5% 92%,100% 99.6%,95% 99%,88% 100%,80% 99.1%,71% 100%,62% 99.2%,53% 100%,44% 99.1%,35% 100%,26% 99.2%,17% 100%,9% 99.1%,3% 100%,0 99.4%,.6% 91%,0 80%,.7% 69%,0 58%,.6% 47%,0 36%,.7% 25%,0 14%)}
+.carta-sombra{filter:drop-shadow(0 14px 18px rgba(58,26,31,.18))}
+.carta h3{font-family:var(--mano);font-weight:400;color:var(--guinda);font-size:clamp(28px,7.6vw,38px);margin:0 0 5%;line-height:1.4}
+.reloj{display:flex;justify-content:center;gap:12%;margin-bottom:6%}
+.casilla{display:flex;flex-direction:column;align-items:center}
+.casilla b{font-family:var(--titulo);font-weight:400;font-size:clamp(22px,6vw,28px);color:var(--tinta);font-variant-numeric:tabular-nums;line-height:1.2}
+.casilla small{font-family:var(--rotulo);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta-suave)}
+.evento{padding:4% 0}
+.evento + .evento{border-top:1px dashed var(--linea)}
+.evento .cuando{font-family:var(--titulo);text-transform:uppercase;font-size:clamp(15px,4.2vw,18px);letter-spacing:.06em;color:var(--tinta);margin:0}
+.evento .que{font-family:var(--rotulo);font-weight:400;text-transform:uppercase;letter-spacing:.14em;font-size:12px;margin:2px 0 6px}
+.evento .lugar{font-family:var(--rotulo);font-weight:400;text-transform:uppercase;letter-spacing:.1em;font-size:16px;color:var(--guinda);margin:0}
+.evento .ciudad{font-family:var(--rotulo);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--tinta-suave);margin:0 0 12px}
+.mapa{display:inline-flex;align-items:center;gap:6px;font-family:var(--rotulo);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--guinda);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.marco{position:absolute;padding:7px;background:linear-gradient(135deg,#5a3418,#2e1a0c 50%,#6e4426);box-shadow:0 10px 16px -6px rgba(40,20,10,.5)}
+.marco::before{content:"";position:absolute;inset:4px;border:1.5px solid #c9a15a;pointer-events:none;z-index:1}
+.marco .ph{width:100%;height:100%;background:linear-gradient(160deg,#e9a46a,#a5452a);display:grid;place-items:center;color:#fff6e8;font-family:var(--rotulo);font-size:10px;letter-spacing:.16em;text-transform:uppercase;overflow:hidden;position:relative}
+.marco .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.m1{left:-2%;bottom:118px;width:30%;aspect-ratio:4/5;transform:rotate(-5deg);z-index:2}
+.m1 .ph{background:linear-gradient(160deg,#9fbf6a,#4f6a2a)}
+.m3{right:-2%;bottom:92px;width:28%;aspect-ratio:4/5;transform:rotate(4deg);z-index:2}
+.m3 .ph{background:linear-gradient(160deg,#f3cd6e,#c58a18)}
+.m2{left:50%;bottom:0;width:34%;aspect-ratio:4/5;transform:translateX(-50%);border-radius:50%;z-index:3;padding:9px;background:radial-gradient(circle at 30% 25%,#f3dca6,#b48a45 40%,#6b4b1d 80%)}
+.m2::before{border-radius:50%;inset:5px;border-color:#fbefcf}
+.m2 .ph{border-radius:50%;background:linear-gradient(160deg,#c2405e,#6a0f26)}
+.cinta{position:absolute;left:-20px;right:-20px;bottom:48px;height:58px;z-index:1;background:
+  radial-gradient(circle at 50% 50%,var(--amarillo) 0 5px,transparent 6px) 0 0/48px 58px,
+  radial-gradient(ellipse 9px 15px at 50% 50%,var(--naranja) 0 98%,transparent) 24px 0/48px 58px,
+  linear-gradient(var(--olivo),var(--olivo));
+  border-block:3px double var(--papel);box-shadow:0 4px 10px -4px rgba(58,26,31,.3)}
+
+/* ───── Itinerario ───── */
+.dias{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%}
+.dia{background:var(--perla);border:1px solid var(--linea);border-radius:14px;padding:18px 12px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.dia h3{margin:0;font-family:var(--rotulo);font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--guinda)}
+.dia ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.dia li{display:flex;flex-direction:column;align-items:center;gap:2px}
+.dia svg{width:38px;height:38px}
+.dia b{font-family:var(--rotulo);font-weight:500;font-size:13px;letter-spacing:.06em;color:var(--tinta)}
+.dia span{font-family:var(--rotulo);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-suave)}
+.dia .pend{color:var(--naranja-osc);font-weight:400}
+
+/* ───── Vestimenta ───── */
+.sub{margin:-10px 0 16px}
+.intro{max-width:36ch;margin:0 auto 28px;color:var(--tinta-suave)}
+.fila{display:grid;grid-template-columns:30% 1fr;gap:16px;align-items:center;width:100%}
+.fila.der{grid-template-columns:1fr 30%}
+.fila.der .figura{order:2}
+.figura svg{width:100%;height:auto;display:block;filter:drop-shadow(0 8px 8px rgba(58,26,31,.18))}
+.lado{display:flex;flex-direction:column;gap:12px;min-width:0}
+.lado h3{margin:0;font-family:var(--rotulo);font-weight:400;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta)}
+.tonos{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px 8px}
+.tonos li{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
+.tonos i,.reserva i{display:block;width:clamp(40px,11.5vw,52px);aspect-ratio:1;border-radius:50%;box-shadow:inset 0 -3px 6px rgba(0,0,0,.12),0 2px 5px rgba(58,26,31,.15)}
+.reserva i.claro{box-shadow:inset 0 0 0 1px rgba(58,26,31,.18),0 2px 5px rgba(58,26,31,.1)}
+.tonos span{font-family:var(--rotulo);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-suave);line-height:1.3}
+.reserva{margin:36px 0;width:100%}
+.reserva h3{font-family:var(--rotulo);font-weight:400;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta);margin:0 0 16px}
+.reserva ul{list-style:none;padding:0;margin:0;display:flex;justify-content:center;gap:48px}
+.reserva li{display:flex;flex-direction:column;align-items:center;gap:4px;max-width:130px}
+.reserva b{font-family:var(--rotulo);font-weight:400;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-top:6px}
+.reserva span{font-size:13px;color:var(--tinta-suave);line-height:1.35}
+
+/* ───── Clima ───── */
+.clima{display:flex;justify-content:center;gap:36px;margin-bottom:18px;flex-wrap:wrap}
+.clima div{display:flex;align-items:center;gap:10px}
+.clima svg{width:40px;height:40px}
+.clima p{margin:0;font-size:15px}
+.nota{max-width:40ch;color:var(--tinta-suave);font-size:var(--t-nota);margin:0}
+
+/* ───── Regalos ───── */
+.regalo{max-width:36ch;margin:0 0 22px}
+.datos{display:none;margin-top:16px;width:100%;max-width:340px;background:var(--perla);border:1px solid var(--linea);border-radius:14px;padding:16px;text-align:left}
+.datos.ver{display:block}
+.datos dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
+.datos dt{font-family:var(--rotulo);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-suave);padding-top:3px}
+.datos dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.copiar{margin-top:12px;background:none;border:1px solid var(--guinda);color:var(--guinda);border-radius:999px;padding:6px 14px;font-family:var(--rotulo);font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+
+/* ───── Confirmar ───── */
+.confirmar{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:var(--guinda)}
+.confirmar svg{width:min(56vw,220px);height:auto;transition:transform .3s}
+.confirmar:hover svg{transform:rotate(-4deg)}
+.confirmar span{font-family:var(--rotulo);font-size:12px;letter-spacing:.22em;text-transform:uppercase;border-bottom:1px dashed var(--guinda);padding-bottom:3px}
+.limite{font-size:var(--t-nota);color:var(--tinta-suave);margin:18px 0 0}
+
+/* ───── Secciones extra ───── */
+.secciones{width:100%;margin-top:var(--aire);border-top:1px solid var(--linea)}
+.secciones details{border-bottom:1px solid var(--linea)}
+.secciones summary{list-style:none;cursor:pointer;padding:20px 0;display:flex;justify-content:center;align-items:center;gap:10px;font-size:19px;color:var(--guinda)}
+.secciones summary::-webkit-details-marker{display:none}
+.secciones summary svg{transition:transform .3s}
+.secciones details[open] summary svg{transform:rotate(90deg)}
+.secciones .contenido{padding:0 4px 22px;color:var(--tinta-suave);font-size:15px;text-align:center}
+.secciones .contenido p{margin:0 0 12px}
+.secciones strong{color:var(--tinta);font-weight:500}
+.pie{text-align:center;margin-top:52px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.estampa{width:150px;height:auto;transform:rotate(-6deg)}
+
+/* Música */
+.musica{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:44px;height:44px;border-radius:50%;border:0;background:rgba(85,96,48,.9);color:var(--perla);display:grid;place-items:center;cursor:pointer;z-index:20;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.musica .on{display:none}
+.musica[aria-pressed="true"] .on{display:block}
+.musica[aria-pressed="true"] .off{display:none}
+.toast{position:fixed;left:50%;bottom:calc(72px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tinta);color:var(--perla);font-family:var(--rotulo);font-size:12px;letter-spacing:.08em;padding:10px 16px;border-radius:8px;z-index:30;opacity:0;transition:opacity .3s;pointer-events:none;max-width:calc(100% - 40px);text-align:center}
+.toast.ver{opacity:1}
+
+/* Estado abierto */
+.listo .marca,.listo .tele{display:block}
+.listo .desliza{display:flex}
+.listo .aviso,.listo .sobre{display:none}
+.listo .marca{animation:aparece 1s ease-out both}
+.listo .tele{animation:aparece 1s .35s ease-out both}
+@keyframes aparece{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+
+@supports (animation-timeline: view()){
+  .rev{animation:sube linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
+  @keyframes sube{from{transform:translateY(24px)}to{transform:none}}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media (max-width:370px){.dias{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+
+<audio id="cancion" loop preload="none"></audio>
+<div id="yt" aria-hidden="true" style="position:fixed;width:1px;height:1px;left:-10px;bottom:0;opacity:0;pointer-events:none;overflow:hidden"></div>
+
+<!-- Monograma D·L reutilizable -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="monograma">
+      <ellipse cx="100" cy="130" rx="86" ry="118" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <ellipse cx="100" cy="130" rx="78" ry="110" fill="none" stroke="currentColor" stroke-width=".8"/>
+      <ellipse cx="100" cy="130" rx="92" ry="124" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="0 9.2" stroke-linecap="round"/>
+      <text x="100" y="196" text-anchor="middle" font-family="Bodoni Moda, Didot, serif" font-size="130" fill="currentColor">L</text>
+      <text x="96" y="150" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="132" fill="currentColor">D</text>
+    </g>
+  </defs>
+</svg>
+
+<div class="doc">
+
+  <!-- ENTRADA -->
+  <section class="entrada" id="entrada" aria-label="Dalia y Lauro, 27 y 28 de febrero de 2027">
+    <div class="marca">
+      <svg class="ovalo" viewBox="0 0 200 260" role="img" aria-label="Monograma D L" style="color:var(--guinda)"><use href="#monograma"/></svg>
+      <p class="nom">Dalia y Lauro</p>
+      <p class="fec">27 · 28 · 02 · 27</p>
+    </div>
+
+    <div class="escenario">
+      <div class="sobre" id="sobre" role="button" tabindex="0" aria-label="Abrir la invitación">
+        <div class="cuerpo"></div>
+        <div class="frente"></div>
+        <div class="solapa"></div>
+        <div class="tex papel-tex"></div>
+        <div class="sello" aria-hidden="true">
+          <svg viewBox="0 0 100 100">
+            <defs>
+              <radialGradient id="cera" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#b8304f"/><stop offset=".55" stop-color="#8f1734"/><stop offset="1" stop-color="#560a1e"/></radialGradient>
+            </defs>
+            <path fill="url(#cera)" d="M50 3c7 0 9 4 15 5s11-1 14 4 2 9 6 13 8 6 8 12-4 8-4 13 4 8 2 14-7 6-10 10-3 9-9 11-9-1-14 1-8 6-14 5-8-5-13-6-10 1-13-4-2-9-6-13-8-6-8-12 4-8 4-13-4-8-2-14 7-6 10-10 3-9 9-11 9 1 14-1 6-4 13-4z"/>
+            <ellipse cx="50" cy="50" rx="25" ry="31" fill="none" stroke="#5a0b1f" stroke-width="1.6" opacity=".7"/>
+            <ellipse cx="50" cy="50" rx="28" ry="34" fill="none" stroke="#d0607a" stroke-width="1.6" stroke-dasharray="0 3.6" stroke-linecap="round" opacity=".55"/>
+            <text x="51" y="67" text-anchor="middle" font-family="Bodoni Moda, serif" font-size="34" fill="#560a1e" opacity=".8">L</text>
+            <text x="49" y="55" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="36" fill="#560a1e" opacity=".8">D</text>
+            <text x="48.4" y="54.3" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="36" fill="#d86a84" opacity=".4">D</text>
+          </svg>
+        </div>
+        <div class="ramo" aria-hidden="true">
+          <svg viewBox="0 0 200 230">
+            <g stroke="#4b6a22" stroke-width="2" fill="none" stroke-linecap="round">
+              <path d="M90 215 C 95 170, 100 135, 108 95"/><path d="M80 218 C 70 180, 60 150, 48 112"/><path d="M100 218 C 130 185, 150 155, 166 122"/><path d="M95 216 C 92 160, 80 100, 72 40"/>
+            </g>
+            <!-- amaranto verde colgante -->
+            <g fill="#8bab3a"><circle cx="40" cy="128" r="4"/><circle cx="36" cy="138" r="4"/><circle cx="34" cy="149" r="3.6"/><circle cx="33" cy="159" r="3.2"/><circle cx="34" cy="168" r="2.8"/><circle cx="36" cy="176" r="2.4"/></g>
+            <g fill="#5f8f2a">
+              <path d="M150 132c20-6 34 2 40 14-18 6-32 0-40-14z"/><path d="M60 142c-20-2-32 8-36 20 18 4 30-4 36-20z"/>
+              <path d="M120 152c14 10 16 26 10 38-14-8-16-22-10-38z" fill="#7aa33a"/><path d="M168 98c16-12 30-10 30-10s-6 18-30 10z" fill="#7aa33a"/>
+            </g>
+            <!-- ave del paraíso / flor alta -->
+            <g transform="translate(72 40)"><path d="M0 0l-18-14 24 4z" fill="#e2650c"/><path d="M0 0l-6-22 10 18z" fill="#f0b43a"/><path d="M0 0l14-6-14 10z" fill="#3a5a8a"/></g>
+            <!-- guinda / amaranto colgante -->
+            <g fill="#8f1734"><ellipse cx="138" cy="20" rx="3.5" ry="8"/><ellipse cx="134" cy="34" rx="4" ry="9"/><ellipse cx="136" cy="48" rx="3.5" ry="7"/></g>
+            <g>
+              <g transform="translate(108 86)"><circle r="26" fill="#e2650c"/><path d="M-14-4c6-14 22-14 28-2-4 10-14 14-20 10s-2-12 6-10" stroke="#a8440a" stroke-width="2.5" fill="none"/><path d="M-20 6c4 12 30 14 38 0" stroke="#a8440a" stroke-width="2" fill="none"/></g>
+              <g transform="translate(68 106)"><circle r="20" fill="#f0b43a"/><path d="M-10-2c4-10 16-10 20 0-4 8-12 8-14 4s2-8 6-6" stroke="#b97f0c" stroke-width="2" fill="none"/><path d="M-14 6c4 9 22 10 28 0" stroke="#b97f0c" stroke-width="1.6" fill="none"/></g>
+              <g transform="translate(150 100)"><circle r="21" fill="#8f1734"/><path d="M-11-3c5-11 17-11 22-1-3 8-11 10-15 7s-1-9 5-8" stroke="#560a1e" stroke-width="2.2" fill="none"/><path d="M-15 5c3 10 23 11 29 0" stroke="#560a1e" stroke-width="1.8" fill="none"/></g>
+              <g transform="translate(118 132)"><circle r="18" fill="#f5894a"/><path d="M-9-2c4-9 14-9 18 0-3 7-10 7-12 4s1-7 5-5" stroke="#c45a1a" stroke-width="1.8" fill="none"/></g>
+              <g transform="translate(86 142)"><circle r="15" fill="#b8304f"/><path d="M-8-2c3-8 12-8 16 0-3 6-9 7-11 3s1-6 5-5" stroke="#6a0f26" stroke-width="2" fill="none"/></g>
+              <g transform="translate(152 142)"><circle r="12" fill="#f0b43a"/><path d="M-6-1c3-6 9-6 12 0-2 4-6 5-8 2" stroke="#b97f0c" stroke-width="1.5" fill="none"/></g>
+              <g transform="translate(96 56)"><circle r="12" fill="#f6d27a"/><path d="M-6-1c3-6 9-6 12 0-2 4-6 5-8 2" stroke="#c99a2a" stroke-width="1.5" fill="none"/></g>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="tele" id="tele">
+        <div class="caja">
+          <div class="pantalla">
+            <div class="foto">
+              <!-- Aquí va su foto o video. Ejemplo:
+                   <video src="nosotros.mp4" autoplay muted loop playsinline></video> -->
+              Aquí va su foto<br>o video favorito
+            </div>
+          </div>
+          <div class="panel" aria-hidden="true"><i class="perilla"></i><i class="perilla b"></i><i class="bocina"></i></div>
+        </div>
+        <div class="patas" aria-hidden="true"><i></i><i></i></div>
+      </div>
+    </div>
+
+    <div class="abajo">
+      <p class="aviso">toca para abrir</p>
+      <a href="#carta" class="desliza rotulo">Desliza<span aria-hidden="true"></span></a>
+    </div>
+  </section>
+
+  <!-- CARTA -->
+  <section class="bloque" id="carta">
+    <div class="carta-zona">
+      <div class="carta-sombra rev">
+        <div class="carta papel-tex">
+          <h3>¡nos casamos!</h3>
+          <div class="reloj">
+            <div class="casilla"><b id="d">—</b><small>días</small></div>
+            <div class="casilla"><b id="h">—</b><small>horas</small></div>
+            <div class="casilla"><b id="m">—</b><small>min</small></div>
+          </div>
+
+          <div class="evento">
+            <p class="cuando">Sábado 27 de febrero · 4:30 PM</p>
+            <p class="que c-naranja">Ceremonia religiosa</p>
+            <p class="lugar">Parroquia Jesús El Buen Pastor</p>
+            <p class="ciudad">Monterrey, N.L.</p>
+            <a class="mapa" href="https://www.google.com/maps/search/?api=1&query=Parroquia%20Jes%C3%BAs%20El%20Buen%20Pastor%20Monterrey" target="_blank" rel="noopener noreferrer">
+              <svg width="10" height="12" viewBox="0 0 11 13" fill="none" aria-hidden="true"><path d="M5.5 1C3.29 1 1.5 2.79 1.5 5c0 3 4 7 4 7s4-4 4-7c0-2.21-1.79-4-4-4z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="5.5" cy="5" r="1.4" stroke="currentColor" stroke-width="1.2"/></svg>
+              Cómo llegar</a>
+          </div>
+
+          <div class="evento">
+            <p class="cuando">Domingo 28 de febrero · <span id="hora-dom">hora por confirmar</span></p>
+            <p class="que c-verde">Boda civil y fiesta</p>
+            <p class="lugar">La Herencia</p>
+            <p class="ciudad">Monterrey, N.L.</p>
+            <a class="mapa" href="https://www.google.com/maps/search/?api=1&query=La%20Herencia%20eventos%20Monterrey" target="_blank" rel="noopener noreferrer">
+              <svg width="10" height="12" viewBox="0 0 11 13" fill="none" aria-hidden="true"><path d="M5.5 1C3.29 1 1.5 2.79 1.5 5c0 3 4 7 4 7s4-4 4-7c0-2.21-1.79-4-4-4z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="5.5" cy="5" r="1.4" stroke="currentColor" stroke-width="1.2"/></svg>
+              Cómo llegar</a>
+          </div>
+        </div>
+      </div>
+      <div class="cinta" aria-hidden="true"></div>
+      <div class="marco m1"><div class="ph">Foto 1</div></div>
+      <div class="marco m3"><div class="ph">Foto 2</div></div>
+      <div class="marco m2"><div class="ph">Foto 3</div></div>
+    </div>
+  </section>
+
+  <!-- ITINERARIO -->
+  <section class="bloque" id="itinerario">
+    <h2 class="c-naranja rev">itinerario</h2>
+    <div class="dias rev">
+      <div class="dia">
+        <h3>Sábado 27</h3>
+        <ul>
+          <li>
+            <svg viewBox="0 0 48 48" fill="none" stroke="#5f8f2a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 44V20M14 44h20M18 44c0-3 2-4 6-4s6 1 6 4M12 22c0 4 4 6 12 6s12-2 12-6M12 22c-3 0-4-3-2-5M36 22c3 0 4-3 2-5M24 20c-2 0-3-2-1-4M12 22v-8M24 20v-10M36 22v-8"/><path d="M12 14c-1-2 0-4 0-5 1 1 2 3 0 5zM24 10c-1-2 0-4 0-5 1 1 2 3 0 5zM36 14c-1-2 0-4 0-5 1 1 2 3 0 5z" fill="#f0b43a" stroke="#e2650c"/></svg>
+            <b>4:30 PM</b><span>Misa</span>
+          </li>
+        </ul>
+      </div>
+      <div class="dia">
+        <h3>Domingo 28</h3>
+        <ul>
+          <li>
+            <svg viewBox="0 0 48 48" fill="none" stroke="#e2650c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 30c6-2 10-6 16-6l8 2c2 1 1 4-1 4h-7M4 38l6-2c6 2 12 2 18-2l12-8c2-1 4 1 3 3l-9 9c-6 5-14 6-22 4"/><circle cx="31" cy="12" r="4"/><path d="M31 8l-2-3h4z" fill="#8f1734" stroke="#8f1734"/></svg>
+            <b class="pend">Por confirmar</b><span>Boda civil</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 48 48" fill="none" stroke="#b97f0c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6h10l-1 14a4 4 0 0 1-8 0zM17 24v16M12 42h10M26 10h10l-1 14a4 4 0 0 1-8 0zM31 28v12M26 42h10"/><path d="M10 4l-2-2M22 3l2-2M38 7l2-2" stroke="#e2650c"/></svg>
+            <b class="pend">Por confirmar</b><span>Recepción y cena</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 48 48" fill="none" stroke="#8f1734" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="9" r="4"/><circle cx="34" cy="9" r="4"/><path d="M14 13l-2 12 -6 16h16l-4-16M14 17l10 4M34 13v14l2 14M34 27l-4 14M34 17l-10 4M34 17l8-6"/></svg>
+            <b class="pend">Por confirmar</b><span>¡A bailar!</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- VESTIMENTA -->
+  <section class="bloque" id="vestimenta">
+    <h2 class="c-verde rev">código de vestimenta</h2>
+    <p class="sub rotulo rev">Formal · llénalo de color</p>
+    <p class="intro rev">Queremos una boda llena de color, como nosotros. Estas son ideas para inspirarte; lo que de verdad nos importa es que estés.</p>
+
+    <div class="fila rev">
+      <div class="figura" aria-hidden="true">
+        <svg viewBox="0 0 120 300">
+          <defs><linearGradient id="tela" x1="0" x2="1"><stop offset="0" stop-color="#c4520a"/><stop offset=".5" stop-color="#f07a24"/><stop offset="1" stop-color="#b84c09"/></linearGradient></defs>
+          <path d="M45 18c4 6 26 6 30 0l6 4c-2 14-6 26-8 34 4 10 6 16 4 26 10 60 30 120 38 208H5c8-88 28-148 38-208-2-10 0-16 4-26-2-8-6-20-8-34z" fill="url(#tela)"/>
+          <path d="M40 82c14 6 26 6 40 0" stroke="#a8440a" stroke-width="2" fill="none"/>
+          <path d="M60 90c-4 70-10 140-20 198M60 90c6 70 16 140 30 198" stroke="#b84c09" stroke-width="1" fill="none" opacity=".6"/>
+          <path d="M55 2v14M65 2v14" stroke="#5a3a2a" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="lado">
+        <h3>Ellas · colores vivos</h3>
+        <ul class="tonos">
+          <li><i style="background:#E2650C"></i><span>Naranja</span></li>
+          <li><i style="background:#F0B43A"></i><span>Amarillo</span></li>
+          <li><i style="background:#5F8F2A"></i><span>Verde</span></li>
+          <li><i style="background:#D63A7A"></i><span>Fucsia</span></li>
+          <li><i style="background:#2F5DA8"></i><span>Azul rey</span></li>
+          <li><i style="background:#E8574A"></i><span>Coral</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="reserva rev">
+      <h3>Por favor evita</h3>
+      <ul>
+        <li><i class="claro" style="background:#FFFFFF"></i><b>Blanco</b><span>Es el color de la novia</span></li>
+        <li><i style="background:#141414"></i><b>Negro</b><span>Queremos todo de color</span></li>
+      </ul>
+    </div>
+
+    <div class="fila der rev">
+      <div class="figura" aria-hidden="true">
+        <svg viewBox="0 0 120 300">
+          <defs><linearGradient id="saco" x1="0" x2="1"><stop offset="0" stop-color="#3c4250"/><stop offset=".5" stop-color="#5a6274"/><stop offset="1" stop-color="#363b47"/></linearGradient></defs>
+          <path d="M60 8 50 6 26 20c-10 4-14 12-16 24l-4 90 12 2 6-70 4 70h64l4-70 6 70 12-2-4-90c-2-12-6-20-16-24L70 6z" fill="url(#saco)"/>
+          <path d="M50 6l10 38 10-38-4 0-6 8-6-8z" fill="#f7f1e6"/>
+          <path d="M60 14l-4 4 4 34 4-34z" fill="#e2650c"/>
+          <path d="M44 8l16 64M76 8 60 72" stroke="#2a2e38" stroke-width="2" fill="none"/>
+          <path d="M80 50l8-2 1 6z" fill="#f0b43a"/>
+          <circle cx="60" cy="96" r="2" fill="#2a2e38"/><circle cx="60" cy="112" r="2" fill="#2a2e38"/>
+          <path d="M28 136h64l-4 156H70l-10-140-10 140H32z" fill="#454b59"/>
+          <path d="M60 152v136" stroke="#2f343f" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="lado">
+        <h3>Ellos · traje y corbata de color</h3>
+        <ul class="tonos">
+          <li><i style="background:#8F1734"></i><span>Guinda</span></li>
+          <li><i style="background:#E2650C"></i><span>Naranja</span></li>
+          <li><i style="background:#F0B43A"></i><span>Mostaza</span></li>
+          <li><i style="background:#5F8F2A"></i><span>Verde</span></li>
+          <li><i style="background:#556030"></i><span>Olivo</span></li>
+          <li><i style="background:#2F5DA8"></i><span>Azul</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIMA -->
+  <section class="bloque" id="clima">
+    <h2 class="c-amarillo rev">el clima esos días</h2>
+    <div class="clima rev">
+      <div>
+        <svg viewBox="0 0 40 40" fill="none" stroke="#e2650c" stroke-width="1.4" aria-label="Sol" role="img"><circle cx="20" cy="20" r="7" fill="#f0b43a"/><path d="M20 4v5M20 31v5M4 20h5M31 20h5M8.7 8.7l3.5 3.5M27.8 27.8l3.5 3.5M8.7 31.3l3.5-3.5M27.8 12.2l3.5-3.5"/></svg>
+        <p>~24° en la tarde</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 40 40" aria-label="Luna" role="img"><path d="M26 6a14 14 0 1 0 8 22A12 12 0 0 1 26 6z" fill="#f6e3b0" stroke="#b97f0c" stroke-width="1.2"/><circle cx="31" cy="9" r="1" fill="#b97f0c"/><circle cx="35" cy="16" r=".8" fill="#b97f0c"/></svg>
+        <p>~11° de noche</p>
+      </div>
+    </div>
+    <p class="nota rev">Es el promedio de finales de febrero en Monterrey. De día se está a gusto, pero en la noche refresca de verdad: trae algo para taparte.</p>
+  </section>
+
+  <!-- REGALOS -->
+  <section class="bloque" id="regalos">
+    <svg class="ilus rev" viewBox="0 0 120 80" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M44 6l-4 30a10 10 0 0 0 20 0L56 6z" stroke="#f0b43a" stroke-width="2"/><path d="M50 46v26M40 74h20" stroke="#f0b43a" stroke-width="2"/>
+      <path d="M68 10l-2 30a10 10 0 0 0 20 2l2-30z" stroke="#f0b43a" stroke-width="2"/><path d="M76 52l-2 22M64 74h20" stroke="#f0b43a" stroke-width="2"/>
+      <path d="M58 4l2-3M62 6l3-2M30 10l-4-2M94 10l4-3" stroke="#e2650c" stroke-width="2"/>
+    </svg>
+    <h2 class="rev">mesa de regalos</h2>
+    <p class="regalo rev">Que nos acompañes es el mejor regalo. Si además quieres consentirnos, nos vamos de luna de miel y nos ayudaría mucho una transferencia para el viaje.</p>
+    <button class="boton rev" type="button" id="ver-datos" aria-expanded="false" aria-controls="datos">Ver datos para transferencia</button>
+    <div class="datos" id="datos">
+      <dl>
+        <dt>Banco</dt><dd id="banco">Por agregar</dd>
+        <dt>Nombre</dt><dd id="titular">Por agregar</dd>
+        <dt>CLABE</dt><dd id="clabe">Por agregar</dd>
+      </dl>
+      <button class="copiar" type="button" id="copiar">Copiar CLABE</button>
+    </div>
+  </section>
+
+  <!-- CONFIRMAR -->
+  <section class="bloque" id="confirmar">
+    <h2 class="c-naranja rev">confirma tu asistencia</h2>
+    <a class="confirmar rev" id="link-confirmar" href="https://wa.me/?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Dalia%20y%20Lauro%20%F0%9F%92%8D" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 200 160" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <!-- relicario de corazones, como en el mood board -->
+        <path d="M60 58c-14-22-48-10-40 18 6 20 34 38 40 50 6-12 34-30 40-50 8-28-26-40-40-18z" stroke="#3a1a1f" stroke-width="2.4"/>
+        <path d="M60 66c-11-16-36-7-30 13 4 14 24 27 30 36 6-9 26-22 30-36 6-20-19-29-30-13z" stroke="#3a1a1f" stroke-width="1.2"/>
+        <text x="60" y="94" text-anchor="middle" font-family="Playwrite MX, cursive" font-size="11" fill="#8f1734" stroke="none" transform="rotate(-10 60 90)">28/02/27</text>
+        <path d="M128 50c-12-20-44-10-38 16 4 18 30 34 38 46 8-12 34-28 38-46 6-26-26-36-38-16z" stroke="#3a1a1f" stroke-width="2.4" transform="rotate(14 128 80)"/>
+        <text x="130" y="88" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="22" fill="#8f1734" stroke="none" transform="rotate(14 130 84)">D&amp;L</text>
+        <path d="M100 40c-6-14 4-22 10-16s-2 14-10 16c-8-2-16-10-10-16s16 2 10 16z" stroke="#e2650c" stroke-width="2"/>
+        <path d="M100 40l-10 18M100 40l12 16" stroke="#e2650c" stroke-width="1.6"/>
+      </svg>
+      <span>Haz click aquí</span>
+    </a>
+    <p class="limite rev">Te pedimos confirmar a más tardar el <span id="fecha-limite">31 de enero de 2027</span>.</p>
+  </section>
+
+  <!-- SECCIONES EXTRA -->
+  <div class="secciones rev">
+    <details>
+      <summary>Dónde hospedarse <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 1l5 5-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="contenido">
+        <p>Tenemos tarifa especial en dos hoteles: <strong>Novotel</strong> y <strong>Hotel Milenium</strong>. Escríbenos y te pasamos el código de descuento.</p>
+        <p>Si se juntan suficientes invitados en el Milenium, habrá transporte hotel – iglesia – hotel.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Qué hacer en Monterrey <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 1l5 5-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="contenido"><p>Si vienes de fuera, aquí pondremos nuestros lugares favoritos para comer y pasear el fin de semana.</p></div>
+    </details>
+    <details>
+      <summary>Preguntas frecuentes <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 1l5 5-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="contenido">
+        <p><strong>¿Puedo llevar acompañante?</strong><br>Tu invitación dice cuántos lugares tienes reservados.</p>
+        <p><strong>¿Pueden ir niños?</strong><br>Queremos que sea una fiesta para adultos, así que no habrá bebés y los niños serán solo por excepción. Gracias por entender.</p>
+        <p><strong>¿Tengo que ir a los dos días?</strong><br>Nos encantaría verte en ambos, pero tu invitación indica a qué eventos estás invitado.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="pie">
+    <svg class="estampa" viewBox="0 0 160 160" aria-label="Dalia y Lauro" role="img">
+      <path d="M14 20q6-8 12 0t12 0 12 0 12 0 12 0 12 0 12 0 12 0 12 0 12 0q8 6 0 12t0 12 0 12 0 12 0 12 0 12 0 12 0 12 0 12q-6 8-12 0t-12 0-12 0-12 0-12 0-12 0-12 0-12 0-12 0-12 0q-8-6 0-12t0-12 0-12 0-12 0-12 0-12 0-12 0-12 0-12z" fill="none" stroke="#b9500a" stroke-width="2.6"/>
+      <rect x="30" y="34" width="100" height="92" fill="none" stroke="#b9500a" stroke-width="2.6"/>
+      <text x="80" y="66" text-anchor="middle" font-family="Playwrite MX, cursive" font-size="17" fill="#b9500a">Dalia</text>
+      <text x="80" y="88" text-anchor="middle" font-family="Playwrite MX, cursive" font-size="15" fill="#b9500a">&amp;</text>
+      <text x="80" y="112" text-anchor="middle" font-family="Playwrite MX, cursive" font-size="17" fill="#b9500a">Lauro</text>
+    </svg>
+    <p class="rotulo">Te esperamos</p>
+  </div>
+</div>
+
+<button class="musica" id="musica" type="button" aria-pressed="false" aria-label="Activar la música">
+  <svg class="off" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 9.5h3.2L12 5.4v13.2L7.2 14.5H4z" fill="currentColor"/><path d="M16 9.5l5 5m0-5l-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+  <svg class="on" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 9.5h3.2L12 5.4v13.2L7.2 14.5H4z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+</button>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+  // ====== DATOS PARA EDITAR ======
+  var FECHA_BODA = '2027-02-27T16:30:00-06:00'; // misa, hora de Monterrey
+  var YOUTUBE_ID = 'HrZi18BoomE'; // canción de YouTube (suena con el reproductor oculto)
+  var YOUTUBE_INICIO = 0;  // segundo en el que empieza
+  var CANCION = '';        // opcional: archivo propio, ej. 'cancion.mp3' (se usa si YouTube no carga)
+  var CLABE = '';          // ej. '012345678901234567'
+  // ===============================
+
+  var root = document.getElementById('entrada');
+  var sobre = document.getElementById('sobre');
+  var tele = document.getElementById('tele');
+  var audio = document.getElementById('cancion');
+  var btn = document.getElementById('musica');
+  var toast = document.getElementById('toast');
+  var abierto = false;
+
+  function aviso(t){ toast.textContent=t; toast.classList.add('ver'); clearTimeout(aviso.t); aviso.t=setTimeout(function(){toast.classList.remove('ver')},2600); }
+
+  // Reproductor de YouTube oculto
+  var yt = null, ytListo = false;
+  window.onYouTubeIframeAPIReady = function(){
+    yt = new YT.Player('yt', { width:1, height:1, videoId:YOUTUBE_ID,
+      playerVars:{ autoplay:0, controls:0, disablekb:1, loop:1, playlist:YOUTUBE_ID, playsinline:1, start:YOUTUBE_INICIO, rel:0 },
+      events:{ onReady:function(){ ytListo = true; } } });
+  };
+  if(YOUTUBE_ID){ var s=document.createElement('script'); s.src='https://www.youtube.com/iframe_api'; s.async=true; document.head.appendChild(s); }
+
+  function estado(on){ btn.setAttribute('aria-pressed', on?'true':'false'); btn.setAttribute('aria-label', on?'Pausar la música':'Activar la música'); }
+  function tocarMusica(on){
+    if(ytListo){ if(on){ yt.unMute(); yt.setVolume(70); yt.playVideo(); } else yt.pauseVideo(); estado(on); return; }
+    if(CANCION){
+      if(!audio.src) audio.src = CANCION;
+      if(on) audio.play().then(function(){estado(true)}).catch(function(){}); else { audio.pause(); estado(false); }
+      return;
+    }
+    estado(false);
+    if(on) aviso('La música sonará cuando la invitación esté publicada 🎶');
+  }
+
+  function abrir(){
+    if(abierto) return; abierto = true;
+    var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    root.classList.add('abierto');
+    setTimeout(function(){ root.classList.add('saliendo'); }, reducido ? 0 : 900);
+    setTimeout(function(){ root.classList.add('listo'); tele.classList.add('encender'); }, reducido ? 0 : 1800);
+    if(ytListo || CANCION) tocarMusica(true);
+  }
+  sobre.addEventListener('click', abrir);
+  sobre.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); abrir(); }});
+  btn.addEventListener('click', function(){ tocarMusica(btn.getAttribute('aria-pressed')!=='true'); });
+
+  // Datos de transferencia
+  var verDatos = document.getElementById('ver-datos'), datos = document.getElementById('datos');
+  if(CLABE) document.getElementById('clabe').textContent = CLABE;
+  verDatos.addEventListener('click', function(){
+    var v = datos.classList.toggle('ver'); verDatos.setAttribute('aria-expanded', v);
+  });
+  document.getElementById('copiar').addEventListener('click', function(){
+    if(!CLABE){ aviso('Aquí irá su CLABE'); return; }
+    var hecho = function(){ aviso('CLABE copiada'); };
+    var manual = function(){ var r=document.createRange(); r.selectNodeContents(document.getElementById('clabe')); var s=getSelection(); s.removeAllRanges(); s.addRange(r); aviso('Selecciónala y cópiala'); };
+    try { navigator.clipboard.writeText(CLABE).then(hecho, manual); } catch(e){ manual(); }
+  });
+
+  // Cuenta regresiva
+  var meta = Date.parse(FECHA_BODA), d=document.getElementById('d'), h=document.getElementById('h'), m=document.getElementById('m');
+  function tic(){
+    var r = Math.max(0, meta - Date.now());
+    d.textContent = Math.floor(r/864e5);
+    h.textContent = String(Math.floor(r%864e5/36e5)).padStart(2,'0');
+    m.textContent = String(Math.floor(r%36e5/6e4)).padStart(2,'0');
+  }
+  tic(); setInterval(tic, 30000);
+})();
+</script>
+
+</body>
+</html>
