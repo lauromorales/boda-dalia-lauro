@@ -98,6 +98,21 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .patas i:nth-child(2){right:10%;transform:skewX(-8deg)}
 .patas::before{content:"";position:absolute;left:6%;right:6%;bottom:-6px;height:12px;background:radial-gradient(ellipse,rgba(40,20,10,.28),transparent 70%)}
 
+/* Tira de película animada */
+.tele.pelicula{padding-bottom:0;width:100%}
+.film{position:relative;background:#2a1a1d;padding:26px 0;border-radius:4px;overflow:hidden;box-shadow:0 18px 26px -16px rgba(40,20,10,.6)}
+.film .perfs{position:absolute;left:0;right:0;height:11px;z-index:3;background-image:linear-gradient(90deg,var(--crema) 0 11px,transparent 11px 22px);background-size:22px 11px;animation:perf .29s linear infinite}
+.film .p-arr{top:7px}.film .p-aba{bottom:7px}
+@keyframes perf{to{background-position-x:-22px}}
+.film .pista{position:absolute;left:0;right:0;top:26px;bottom:26px;overflow:hidden}
+.film .carrete{display:flex;gap:10px;height:100%;width:max-content;animation:corre 12s linear infinite}
+.film .carrete img{height:100%;aspect-ratio:6/5;width:auto;object-fit:cover;filter:sepia(.45) saturate(.7) brightness(.78)}
+@keyframes corre{to{transform:translateX(calc(-50% - 5px))}}
+.tele.pelicula .pantalla{position:relative;z-index:2;width:64%;aspect-ratio:6/5;margin:0 auto;border-radius:2px;box-shadow:0 0 0 7px #2a1a1d,0 0 22px 8px rgba(0,0,0,.55)}
+.tele.pelicula .pantalla::after{background:radial-gradient(ellipse at 50% 45%,transparent 55%,rgba(0,0,0,.35)),repeating-linear-gradient(0deg,rgba(0,0,0,.06) 0 1px,transparent 1px 3px);animation:parpadeo .18s steps(2) infinite}
+@keyframes parpadeo{50%{opacity:.75}}
+@media (prefers-reduced-motion:reduce){.film .perfs,.film .carrete,.tele.pelicula .pantalla::after{animation:none}}
+
 /* ───── Carta ───── */
 .carta-zona{position:relative;width:100%;padding-bottom:150px}
 .carta{position:relative;background-color:var(--papel);padding:15% 8% 30%;clip-path:polygon(0 1%,4% 0,9% 1.2%,15% .3%,22% 1%,30% 0,37% .9%,45% .2%,53% 1.1%,61% .1%,68% 1%,76% .2%,84% 1.1%,91% .3%,96% 1%,100% .2%,99.4% 8%,100% 17%,99.2% 27%,100% 38%,99.4% 49%,100% 60%,99.3% 71%,100% 82%,99.5% 92%,100% 99.6%,95% 99%,88% 100%,80% 99.1%,71% 100%,62% 99.2%,53% 100%,44% 99.1%,35% 100%,26% 99.2%,17% 100%,9% 99.1%,3% 100%,0 99.4%,.6% 91%,0 80%,.7% 69%,0 58%,.6% 47%,0 36%,.7% 25%,0 14%)}
@@ -349,16 +364,17 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
         </div>
       </div>
 
-      <div class="tele" id="tele">
-        <div class="caja">
+      <div class="tele pelicula" id="tele">
+        <div class="film">
+          <div class="perfs p-arr" aria-hidden="true"></div>
+          <div class="pista" aria-hidden="true"><div class="carrete"><img src="cuadros/c1.jpg" alt=""><img src="cuadros/c2.jpg" alt=""><img src="cuadros/c3.jpg" alt=""><img src="cuadros/c4.jpg" alt=""><img src="cuadros/c5.jpg" alt=""><img src="cuadros/c6.jpg" alt=""><img src="cuadros/c1.jpg" alt=""><img src="cuadros/c2.jpg" alt=""><img src="cuadros/c3.jpg" alt=""><img src="cuadros/c4.jpg" alt=""><img src="cuadros/c5.jpg" alt=""><img src="cuadros/c6.jpg" alt=""></div></div>
           <div class="pantalla">
             <div class="foto">
               <video id="video-tele" src="video.mp4" poster="video-portada.jpg" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture></video>
             </div>
           </div>
-          <div class="panel" aria-hidden="true"><i class="perilla"></i><i class="perilla b"></i><i class="bocina"></i></div>
+          <div class="perfs p-aba" aria-hidden="true"></div>
         </div>
-        <div class="patas" aria-hidden="true"><i></i><i></i></div>
       </div>
     </div>
 
