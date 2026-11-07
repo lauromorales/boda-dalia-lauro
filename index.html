@@ -159,15 +159,20 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .lado h3{margin:0;font-family:var(--rotulo);font-weight:400;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta)}
 .tonos{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px 8px}
 .tonos li{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
-.tonos i,.reserva i{display:block;width:clamp(40px,11.5vw,52px);aspect-ratio:1;border-radius:50%;box-shadow:inset 0 -3px 6px rgba(0,0,0,.12),0 2px 5px rgba(58,26,31,.15)}
-.reserva i.claro{box-shadow:inset 0 0 0 1px rgba(58,26,31,.18),0 2px 5px rgba(58,26,31,.1)}
+.tonos i{display:block;width:clamp(40px,11.5vw,52px);aspect-ratio:1;border-radius:50%;box-shadow:inset 0 -3px 6px rgba(0,0,0,.12),0 2px 5px rgba(58,26,31,.15)}
 .tonos span{font-family:var(--rotulo);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-suave);line-height:1.3}
-.reserva{margin:36px 0;width:100%}
-.reserva h3{font-family:var(--rotulo);font-weight:400;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta);margin:0 0 16px}
-.reserva ul{list-style:none;padding:0;margin:0;display:flex;justify-content:center;gap:48px}
-.reserva li{display:flex;flex-direction:column;align-items:center;gap:4px;max-width:130px}
-.reserva b{font-family:var(--rotulo);font-weight:400;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-top:6px}
-.reserva span{font-size:13px;color:var(--tinta-suave);line-height:1.35}
+.tarjeta{width:100%;background:var(--perla);border:1px solid var(--linea);border-radius:20px;padding:22px 16px 26px;display:flex;flex-direction:column;align-items:center;gap:14px;box-shadow:0 10px 24px -18px rgba(58,26,31,.35)}
+.tarjeta + .tarjeta{margin-top:22px}
+.quien{margin:0;font-family:var(--mano);font-weight:400;font-size:28px;line-height:1.3;color:var(--olivo)}
+.quien.c-naranja{color:var(--naranja)}
+.evita{width:100%;border-top:1px dashed var(--linea);padding-top:18px;margin-top:6px}
+.evita h4{margin:0 0 14px;font-family:var(--rotulo);font-weight:400;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--guinda)}
+.evita ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 10px}
+.evita li{display:flex;flex-direction:column;align-items:center;gap:5px;width:58px}
+.evita i{display:block;width:36px;height:36px;border-radius:50%;position:relative;box-shadow:inset 0 0 0 1px rgba(58,26,31,.18),0 2px 4px rgba(58,26,31,.12)}
+.evita i::after{content:"";position:absolute;left:-3px;right:-3px;top:50%;height:2px;margin-top:-1px;background:var(--guinda);transform:rotate(-45deg);border-radius:2px;box-shadow:0 0 0 1.5px var(--perla)}
+.evita span{font-family:var(--rotulo);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-suave)}
+.evita p{margin:14px auto 0;max-width:30ch;font-size:13px;color:var(--tinta-suave);line-height:1.45}
 
 /* ───── Clima ───── */
 .clima{display:flex;justify-content:center;gap:36px;margin-bottom:18px;flex-wrap:wrap}
@@ -402,7 +407,9 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
     <p class="sub rotulo rev">Formal · llénalo de color</p>
     <p class="intro rev">Queremos una boda llena de color, como nosotros. Estas son ideas para inspirarte; lo que de verdad nos importa es que estés.</p>
 
-    <div class="fila rev">
+    <div class="tarjeta rev">
+    <h3 class="quien c-naranja">ellas</h3>
+    <div class="fila">
       <div class="figura" aria-hidden="true">
         <svg viewBox="0 0 120 300">
           <defs><linearGradient id="tela" x1="0" x2="1"><stop offset="0" stop-color="#c4520a"/><stop offset=".5" stop-color="#f07a24"/><stop offset="1" stop-color="#b84c09"/></linearGradient></defs>
@@ -413,7 +420,7 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
         </svg>
       </div>
       <div class="lado">
-        <h3>Ellas · colores vivos</h3>
+        <h3>Te sugerimos colores vivos</h3>
         <ul class="tonos">
           <li><i style="background:#E2650C"></i><span>Naranja</span></li>
           <li><i style="background:#F0B43A"></i><span>Amarillo</span></li>
@@ -424,16 +431,24 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
         </ul>
       </div>
     </div>
-
-    <div class="reserva rev">
-      <h3>Por favor evita</h3>
+    <div class="evita">
+      <h4>Por favor evita</h4>
       <ul>
-        <li><i class="claro" style="background:#FFFFFF"></i><b>Blanco</b><span>Es el color de la novia</span></li>
-        <li><i style="background:#141414"></i><b>Negro</b><span>Queremos todo de color</span></li>
+        <li><i style="background:#FFFFFF"></i><span>Blanco</span></li>
+        <li><i style="background:#FBF6E8"></i><span>Ivory</span></li>
+        <li><i style="background:#F1E3C4"></i><span>Crema</span></li>
+        <li><i style="background:#D8C3A0"></i><span>Beige</span></li>
+        <li><i style="background:radial-gradient(circle at 35% 30%,#fbe7a6,#d4a640 45%,#8f6a1c)"></i><span>Dorado</span></li>
+        <li><i style="background:radial-gradient(circle at 35% 30%,#ffffff,#c4c7cc 45%,#7d8188)"></i><span>Plateado</span></li>
+        <li><i style="background:#141414"></i><span>Negro</span></li>
       </ul>
+      <p>El blanco y sus tonos parecidos son para la novia, y queremos la fiesta llena de color.</p>
+    </div>
     </div>
 
-    <div class="fila der rev">
+    <div class="tarjeta rev">
+    <h3 class="quien">ellos</h3>
+    <div class="fila der">
       <div class="figura" aria-hidden="true">
         <svg viewBox="0 0 120 300">
           <defs><linearGradient id="saco" x1="0" x2="1"><stop offset="0" stop-color="#3c4250"/><stop offset=".5" stop-color="#5a6274"/><stop offset="1" stop-color="#363b47"/></linearGradient></defs>
@@ -448,7 +463,7 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
         </svg>
       </div>
       <div class="lado">
-        <h3>Ellos · traje y corbata de color</h3>
+        <h3>Traje con corbata de color</h3>
         <ul class="tonos">
           <li><i style="background:#8F1734"></i><span>Guinda</span></li>
           <li><i style="background:#E2650C"></i><span>Naranja</span></li>
@@ -458,6 +473,7 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
           <li><i style="background:#2F5DA8"></i><span>Azul</span></li>
         </ul>
       </div>
+    </div>
     </div>
   </section>
 
