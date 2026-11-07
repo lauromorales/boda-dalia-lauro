@@ -158,8 +158,15 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .lado{display:flex;flex-direction:column;gap:12px;min-width:0}
 .lado h3{margin:0;font-family:var(--rotulo);font-weight:400;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta)}
 .tonos{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px 8px}
-.tonos li{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
-.tonos i{display:block;width:clamp(40px,11.5vw,52px);aspect-ratio:1;border-radius:50%;box-shadow:inset 0 -3px 6px rgba(0,0,0,.12),0 2px 5px rgba(58,26,31,.15)}
+.tonos li{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0}
+.brocha{display:block;width:100%;max-width:84px;height:auto;filter:drop-shadow(0 2px 2px rgba(58,26,31,.18))}
+.evita .brocha{max-width:70px}
+.brocha.claro use{stroke:rgba(58,26,31,.22);stroke-width:1}
+.tonos li:nth-child(3n+1) .brocha{transform:rotate(-6deg)}
+.tonos li:nth-child(3n+2) .brocha{transform:rotate(4deg) scaleX(-1)}
+.tonos li:nth-child(3n) .brocha{transform:rotate(-2deg)}
+.evita li:nth-child(odd) .brocha{transform:rotate(5deg) scaleX(-1)}
+.evita li:nth-child(even) .brocha{transform:rotate(-4deg)}
 .tonos span{font-family:var(--rotulo);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-suave);line-height:1.3}
 .tarjeta{width:100%;background:var(--perla);border:1px solid var(--linea);border-radius:20px;padding:22px 16px 26px;display:flex;flex-direction:column;align-items:center;gap:14px;box-shadow:0 10px 24px -18px rgba(58,26,31,.35)}
 .tarjeta + .tarjeta{margin-top:22px}
@@ -167,10 +174,9 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .quien.c-naranja{color:var(--naranja)}
 .evita{width:100%;border-top:1px dashed var(--linea);padding-top:18px;margin-top:6px}
 .evita h4{margin:0 0 14px;font-family:var(--rotulo);font-weight:400;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--guinda)}
-.evita ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 10px}
-.evita li{display:flex;flex-direction:column;align-items:center;gap:5px;width:58px}
-.evita i{display:block;width:36px;height:36px;border-radius:50%;position:relative;box-shadow:inset 0 0 0 1px rgba(58,26,31,.18),0 2px 4px rgba(58,26,31,.12)}
-.evita i::after{content:"";position:absolute;left:-3px;right:-3px;top:50%;height:2px;margin-top:-1px;background:var(--guinda);transform:rotate(-45deg);border-radius:2px;box-shadow:0 0 0 1.5px var(--perla)}
+.evita ul{list-style:none;margin:0 auto;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 0;max-width:340px}
+
+.evita li{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0;flex:0 0 25%}
 .evita span{font-family:var(--rotulo);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-suave)}
 .evita p{margin:14px auto 0;max-width:30ch;font-size:13px;color:var(--tinta-suave);line-height:1.45}
 
@@ -249,6 +255,9 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
       <text x="100" y="196" text-anchor="middle" font-family="Bodoni Moda, Didot, serif" font-size="130" fill="currentColor">L</text>
       <text x="96" y="150" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="132" fill="currentColor">D</text>
     </g>
+    <path id="brocha" fill-rule="evenodd" d="M10.0 12.7 L13.8 15.1 L17.7 15.7 L21.5 14.0 L25.4 16.4 L29.2 17.2 L33.1 16.0 L36.9 19.3 L40.8 17.7 L44.6 16.2 L48.5 17.6 L52.3 19.1 L56.2 18.3 L60.0 18.9 L63.8 19.1 L67.7 19.6 L71.5 18.7 L75.4 21.1 L79.2 21.2 L83.1 20.3 L86.9 18.5 L90.8 20.0 L94.6 20.1 L98.5 18.5 L102.3 20.7 L106.2 20.3 L110.0 21.2 L110.0 21.6 L113.8 22.2 L110.0 24.3 L110.0 25.1 L118.4 25.9 L110.0 27.8 L110.0 28.6 L114.7 29.8 L110.0 31.3 L110.0 32.1 L119.1 32.8 L110.0 34.8 L110.0 35.6 L116.1 37.0 L110.0 38.3 L110.0 39.1 L119.2 40.9 L110.0 41.8 L110.0 42.2 L106.2 44.8 L102.3 46.9 L98.5 47.3 L94.6 47.9 L90.8 47.6 L86.9 49.6 L83.1 49.2 L79.2 46.7 L75.4 48.7 L71.5 51.6 L67.7 51.2 L63.8 50.7 L60.0 50.5 L56.2 51.0 L52.3 49.0 L48.5 51.8 L44.6 52.5 L40.8 49.8 L36.9 49.5 L33.1 52.8 L29.2 51.6 L25.4 50.2 L21.5 50.1 L17.7 48.7 L13.8 49.4 L10.0 50.8 C4 48.8 2 14.7 10.0 12.7Z M38.4 42.2 Q55.0 41.1 71.7 42.5 Q55.0 42.8 38.4 42.2Z M56.5 28.0 Q78.6 26.9 100.7 28.3 Q78.6 28.6 56.5 28.0Z M35.3 22.2 Q50.1 21.1 64.9 22.5 Q50.1 22.8 35.3 22.2Z M44.5 24.5 Q62.9 23.4 81.3 24.8 Q62.9 25.1 44.5 24.5Z"/>
+    <linearGradient id="oro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7e2a0"/><stop offset=".45" stop-color="#d4a640"/><stop offset="1" stop-color="#8f6a1c"/></linearGradient>
+    <linearGradient id="plata" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#c4c7cc"/><stop offset="1" stop-color="#7d8188"/></linearGradient>
   </defs>
 </svg>
 
@@ -422,25 +431,25 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
       <div class="lado">
         <h3>Te sugerimos colores vivos</h3>
         <ul class="tonos">
-          <li><i style="background:#E2650C"></i><span>Naranja</span></li>
-          <li><i style="background:#F0B43A"></i><span>Amarillo</span></li>
-          <li><i style="background:#5F8F2A"></i><span>Verde</span></li>
-          <li><i style="background:#D63A7A"></i><span>Fucsia</span></li>
-          <li><i style="background:#2F5DA8"></i><span>Azul rey</span></li>
-          <li><i style="background:#E8574A"></i><span>Coral</span></li>
+          <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#E2650C"/></svg><span>Naranja</span></li>
+          <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#F0B43A"/></svg><span>Amarillo</span></li>
+          <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#5F8F2A"/></svg><span>Verde</span></li>
+          <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#D63A7A"/></svg><span>Fucsia</span></li>
+          <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#2F5DA8"/></svg><span>Azul rey</span></li>
+          <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#E8574A"/></svg><span>Coral</span></li>
         </ul>
       </div>
     </div>
     <div class="evita">
       <h4>Por favor evita</h4>
       <ul>
-        <li><i style="background:#FFFFFF"></i><span>Blanco</span></li>
-        <li><i style="background:#FBF6E8"></i><span>Ivory</span></li>
-        <li><i style="background:#F1E3C4"></i><span>Crema</span></li>
-        <li><i style="background:#D8C3A0"></i><span>Beige</span></li>
-        <li><i style="background:radial-gradient(circle at 35% 30%,#fbe7a6,#d4a640 45%,#8f6a1c)"></i><span>Dorado</span></li>
-        <li><i style="background:radial-gradient(circle at 35% 30%,#ffffff,#c4c7cc 45%,#7d8188)"></i><span>Plateado</span></li>
-        <li><i style="background:#141414"></i><span>Negro</span></li>
+        <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#FFFFFF"/></svg><span>Blanco</span></li>
+        <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#FBF6E8"/></svg><span>Ivory</span></li>
+        <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#F1E3C4"/></svg><span>Crema</span></li>
+        <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#D8C3A0"/></svg><span>Beige</span></li>
+        <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="url(#oro)"/></svg><span>Dorado</span></li>
+        <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="url(#plata)"/></svg><span>Plateado</span></li>
+        <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#141414"/></svg><span>Negro</span></li>
       </ul>
       <p>El blanco y sus tonos parecidos son para la novia, y queremos la fiesta llena de color.</p>
     </div>
@@ -465,12 +474,12 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
       <div class="lado">
         <h3>Traje con corbata de color</h3>
         <ul class="tonos">
-          <li><i style="background:#8F1734"></i><span>Guinda</span></li>
-          <li><i style="background:#E2650C"></i><span>Naranja</span></li>
-          <li><i style="background:#F0B43A"></i><span>Mostaza</span></li>
-          <li><i style="background:#5F8F2A"></i><span>Verde</span></li>
-          <li><i style="background:#556030"></i><span>Olivo</span></li>
-          <li><i style="background:#2F5DA8"></i><span>Azul</span></li>
+          <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#8F1734"/></svg><span>Guinda</span></li>
+          <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#E2650C"/></svg><span>Naranja</span></li>
+          <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#F0B43A"/></svg><span>Mostaza</span></li>
+          <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#5F8F2A"/></svg><span>Verde</span></li>
+          <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#556030"/></svg><span>Olivo</span></li>
+          <li><svg class="brocha" viewBox="2 8 122 50" aria-hidden="true"><use href="#brocha" fill="#2F5DA8"/></svg><span>Azul</span></li>
         </ul>
       </div>
     </div>
