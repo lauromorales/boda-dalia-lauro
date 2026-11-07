@@ -202,7 +202,32 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .copiar{margin-top:12px;background:none;border:1px solid var(--guinda);color:var(--guinda);border-radius:999px;padding:6px 14px;font-family:var(--rotulo);font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
 
 /* ───── Confirmar ───── */
-.confirmar{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:var(--guinda)}
+.confirmar{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:var(--guinda);background:none;border:0;padding:0;cursor:pointer;font:inherit}
+.rsvp{width:100%;max-width:400px;margin-top:22px;background:var(--perla);border:1px solid var(--linea);border-radius:20px;padding:22px 18px;display:flex;flex-direction:column;gap:16px;text-align:left}
+.rsvp .campo{display:flex;flex-direction:column;gap:6px;border:0;margin:0;padding:0;min-width:0}
+.rsvp label,.rsvp legend{font-family:var(--rotulo);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta);padding:0}
+.rsvp small{text-transform:none;letter-spacing:0;font-family:var(--titulo);font-size:12.5px;color:var(--tinta-suave)}
+.rsvp input[type=text],.rsvp input[type=tel],.rsvp select,.rsvp textarea{font:inherit;font-size:16px;color:var(--tinta);background:var(--crema);border:1px solid rgba(58,26,31,.22);border-radius:10px;padding:10px 12px;width:100%}
+.rsvp input:focus,.rsvp select:focus,.rsvp textarea:focus{outline:2px solid var(--naranja);outline-offset:1px;border-color:transparent}
+.rsvp .opciones{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.rsvp .opciones.col{flex-direction:column}
+.rsvp .pastilla{flex:1 1 140px;text-transform:none;letter-spacing:0;font-family:var(--titulo);font-size:15px}
+.rsvp .pastilla input,.rsvp .check input{position:absolute;opacity:0;pointer-events:none}
+.rsvp .pastilla span{display:block;text-align:center;padding:10px 12px;border:1px solid rgba(58,26,31,.22);border-radius:999px;cursor:pointer;background:var(--crema)}
+.rsvp .pastilla input:checked + span{background:var(--guinda);border-color:var(--guinda);color:var(--perla)}
+.rsvp .pastilla input:focus-visible + span,.rsvp .check input:focus-visible + span{outline:2px solid var(--naranja);outline-offset:2px}
+.rsvp .check{position:relative;text-transform:none;letter-spacing:0;font-family:var(--titulo);font-size:15px;cursor:pointer}
+.rsvp .check span{display:flex;align-items:center;gap:10px}
+.rsvp .check span::before{content:"";flex:none;width:20px;height:20px;border-radius:6px;border:1.5px solid rgba(58,26,31,.35);background:var(--crema)}
+.rsvp .check input:checked + span::before{background:var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10l3.5 3.5L15 7' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat;border-color:var(--verde)}
+.rsvp .si-asiste{display:flex;flex-direction:column;gap:16px}
+.rsvp .trampa{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.rsvp .error{margin:0;color:var(--guinda);font-size:14px}
+.rsvp .boton{align-self:center;margin-top:4px}
+.rsvp .boton[disabled]{opacity:.6;cursor:wait}
+.gracias{margin-top:22px;max-width:360px}
+.gracias-titulo{font-family:var(--mano);font-size:26px;color:var(--verde);margin:0 0 6px;line-height:1.4}
+.gracias p{margin:0;color:var(--tinta-suave)}
 .confirmar svg{width:min(56vw,220px);height:auto;transition:transform .3s}
 .confirmar:hover svg{transform:rotate(-4deg)}
 .confirmar span{font-family:var(--rotulo);font-size:12px;letter-spacing:.22em;text-transform:uppercase;border-bottom:1px dashed var(--guinda);padding-bottom:3px}
@@ -534,7 +559,7 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
   <!-- CONFIRMAR -->
   <section class="bloque" id="confirmar">
     <h2 class="c-naranja rev">confirma tu asistencia</h2>
-    <a class="confirmar rev" id="link-confirmar" href="https://wa.me/?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Dalia%20y%20Lauro%20%F0%9F%92%8D" target="_blank" rel="noopener noreferrer">
+    <button class="confirmar rev" type="button" id="abrir-form" aria-expanded="false" aria-controls="form-rsvp">
       <svg viewBox="20 18 170 124" aria-hidden="true"><g fill="none" stroke-linecap="round" stroke-linejoin="round">
 <g transform="rotate(-5 90 90)"><rect x="30" y="50" width="120" height="80" rx="5" stroke="#8f1734" stroke-width="2.4"/>
 <text x="90" y="74" text-anchor="middle" font-family="Oswald, sans-serif" font-size="11" letter-spacing="3" fill="#8f1734">CONFIRMO</text>
@@ -543,7 +568,54 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 <path d="M0 0 L-9 -22 C-9 -34 -5 -42 0 -48 C5 -42 9 -34 9 -22 Z"/><path d="M0 -6 V-30"/><circle cx="0" cy="-30" r="2.4"/>
 <path d="M-11 -50 h22 M-10 -50 v-34 a10 10 0 0 1 20 0 v34" /></g></svg>
       <span>Haz click aquí</span>
-    </a>
+    </button>
+    <form class="rsvp" id="form-rsvp" hidden novalidate>
+      <div class="campo">
+        <label for="r-nombre">Tu nombre o el de tu familia</label>
+        <input id="r-nombre" name="nombre" type="text" autocomplete="name" maxlength="120" required placeholder="Ej. Familia Cantú">
+      </div>
+      <fieldset class="campo">
+        <legend>¿Nos acompañas?</legend>
+        <div class="opciones">
+          <label class="pastilla"><input type="radio" name="asiste" value="Sí" id="r-si" checked><span>¡Sí, ahí estaré!</span></label>
+          <label class="pastilla"><input type="radio" name="asiste" value="No" id="r-no"><span>No podré ir</span></label>
+        </div>
+      </fieldset>
+      <div class="si-asiste" id="si-asiste">
+        <div class="campo">
+          <label for="r-personas">¿Cuántas personas vienen, contándote?</label>
+          <select id="r-personas" name="personas">
+            <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+          </select>
+        </div>
+        <fieldset class="campo">
+          <legend>¿A qué eventos vienen?</legend>
+          <div class="opciones col">
+            <label class="check"><input type="checkbox" name="misa" value="Sí" id="r-misa" checked><span>Misa · sábado 27, 4:30 PM</span></label>
+            <label class="check"><input type="checkbox" name="fiesta" value="Sí" id="r-fiesta" checked><span>Civil y fiesta · domingo 28</span></label>
+          </div>
+        </fieldset>
+        <div class="campo">
+          <label for="r-alergias">Alergias o restricciones de comida <small>(opcional)</small></label>
+          <input id="r-alergias" name="alergias" type="text" maxlength="300" placeholder="Ej. vegetariano, sin nueces">
+        </div>
+      </div>
+      <div class="campo">
+        <label for="r-telefono">Tu teléfono <small>(opcional, por si necesitamos avisarte algo)</small></label>
+        <input id="r-telefono" name="telefono" type="tel" autocomplete="tel" maxlength="30" inputmode="tel">
+      </div>
+      <div class="campo">
+        <label for="r-mensaje">Un mensaje para nosotros <small>(opcional)</small></label>
+        <textarea id="r-mensaje" name="mensaje" rows="3" maxlength="1000"></textarea>
+      </div>
+      <input class="trampa" type="text" name="sitio" id="r-sitio" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="error" id="r-error" role="alert" hidden></p>
+      <button class="boton" type="submit" id="r-enviar">Enviar confirmación</button>
+    </form>
+    <div class="gracias" id="gracias" hidden>
+      <p class="gracias-titulo" id="gracias-titulo">¡Gracias!</p>
+      <p id="gracias-texto">Ya recibimos tu confirmación.</p>
+    </div>
     <p class="limite rev">Te pedimos confirmar a más tardar el <span id="fecha-limite">31 de enero de 2027</span>.</p>
   </section>
 
@@ -666,6 +738,51 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
     var hecho = function(){ aviso('CLABE copiada'); };
     var manual = function(){ var r=document.createRange(); r.selectNodeContents(document.getElementById('clabe')); var s=getSelection(); s.removeAllRanges(); s.addRange(r); aviso('Selecciónala y cópiala'); };
     try { navigator.clipboard.writeText(CLABE).then(hecho, manual); } catch(e){ manual(); }
+  });
+
+  // ====== CONFIRMACIONES (Google Sheets) ======
+  var URL_CONFIRMACIONES = ''; // pega aquí la URL de la app web de Apps Script
+  var abrirForm = document.getElementById('abrir-form'), formR = document.getElementById('form-rsvp');
+  var gracias = document.getElementById('gracias'), err = document.getElementById('r-error'), enviar = document.getElementById('r-enviar');
+  abrirForm.addEventListener('click', function(){
+    formR.hidden = false; abrirForm.setAttribute('aria-expanded','true');
+    formR.scrollIntoView({behavior:'smooth', block:'start'});
+    setTimeout(function(){ document.getElementById('r-nombre').focus({preventScroll:true}); }, 400);
+  });
+  document.getElementById('r-nombre').addEventListener('input', function(){ err.hidden = true; });
+  function sincronizar(){ document.getElementById('si-asiste').hidden = document.getElementById('r-no').checked; }
+  document.getElementById('r-si').addEventListener('change', sincronizar);
+  document.getElementById('r-no').addEventListener('change', sincronizar);
+  formR.addEventListener('submit', function(e){
+    e.preventDefault(); err.hidden = true;
+    var nombre = document.getElementById('r-nombre').value.trim();
+    if(!nombre){ err.textContent = 'Escribe tu nombre para saber quién confirma.'; err.hidden = false; document.getElementById('r-nombre').focus(); return; }
+    var asiste = document.getElementById('r-no').checked ? 'No' : 'Sí';
+    var misa = document.getElementById('r-misa').checked, fiesta = document.getElementById('r-fiesta').checked;
+    if(asiste === 'Sí' && !misa && !fiesta){ err.textContent = 'Marca al menos un evento al que vienes.'; err.hidden = false; return; }
+    if(!URL_CONFIRMACIONES){ err.textContent = 'El formulario todavía no está conectado. Inténtalo más tarde.'; err.hidden = false; return; }
+    var datos = new URLSearchParams({
+      nombre: nombre, asiste: asiste,
+      personas: asiste === 'Sí' ? document.getElementById('r-personas').value : '0',
+      misa: asiste === 'Sí' && misa ? 'Sí' : 'No', fiesta: asiste === 'Sí' && fiesta ? 'Sí' : 'No',
+      alergias: asiste === 'Sí' ? document.getElementById('r-alergias').value.trim() : '',
+      telefono: document.getElementById('r-telefono').value.trim(),
+      mensaje: document.getElementById('r-mensaje').value.trim(),
+      sitio: document.getElementById('r-sitio').value
+    });
+    enviar.disabled = true; enviar.textContent = 'Enviando…';
+    fetch(URL_CONFIRMACIONES, { method:'POST', mode:'no-cors', body: datos })
+      .then(function(){
+        formR.hidden = true; abrirForm.hidden = true; gracias.hidden = false;
+        document.getElementById('gracias-titulo').textContent = asiste === 'Sí' ? '¡Gracias, nos vemos ahí!' : '¡Gracias por avisarnos!';
+        document.getElementById('gracias-texto').textContent = asiste === 'Sí'
+          ? 'Ya quedó tu confirmación, ' + nombre + '. Te esperamos con mucho cariño.'
+          : 'Te vamos a extrañar, ' + nombre + '. Gracias por decirnos.';
+      })
+      .catch(function(){
+        err.textContent = 'No se pudo enviar. Revisa tu conexión e inténtalo otra vez.'; err.hidden = false;
+        enviar.disabled = false; enviar.textContent = 'Enviar confirmación';
+      });
   });
 
   // Cuenta regresiva
