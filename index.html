@@ -215,6 +215,7 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .datos dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
 .datos dt{font-family:var(--rotulo);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-suave);padding-top:3px}
 .datos dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.datos .pronto{margin:0;font-size:14.5px;line-height:1.5;color:var(--tinta-suave);text-align:center}
 .copiar{margin-top:12px;background:none;border:1px solid var(--guinda);color:var(--guinda);border-radius:999px;padding:6px 14px;font-family:var(--rotulo);font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
 
 /* ───── Confirmar ───── */
@@ -564,12 +565,13 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
       </div>
     </div>
     <div class="datos" id="datos">
-      <dl>
-        <dt>Banco</dt><dd id="banco">Por agregar</dd>
-        <dt>Nombre</dt><dd id="titular">Por agregar</dd>
-        <dt>CLABE</dt><dd id="clabe">Por agregar</dd>
+      <p class="pronto" id="datos-pronto">Estamos abriendo nuestra cuenta. Muy pronto encontrarás aquí los datos para transferir.</p>
+      <dl id="datos-cuenta" hidden>
+        <dt>Banco</dt><dd id="banco"></dd>
+        <dt>Nombre</dt><dd id="titular"></dd>
+        <dt>CLABE</dt><dd id="clabe"></dd>
       </dl>
-      <button class="copiar" type="button" id="copiar">Copiar CLABE</button>
+      <button class="copiar" type="button" id="copiar" hidden>Copiar CLABE</button>
     </div>
   </section>
 
@@ -685,6 +687,8 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
   var YOUTUBE_INICIO = 0;  // segundo en el que empieza
   var CANCION = '';        // opcional: archivo propio, ej. 'cancion.mp3' (se usa si YouTube no carga)
   var CLABE = '';          // ej. '012345678901234567'
+  var BANCO = '';         // ej. 'BBVA'
+  var TITULAR = '';       // ej. 'Dalia Gurrola y Lauro Morales'
   // ===============================
 
   var root = document.getElementById('entrada');
@@ -746,7 +750,14 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 
   // Datos de transferencia
   var verDatos = document.getElementById('ver-datos'), datos = document.getElementById('datos');
-  if(CLABE) document.getElementById('clabe').textContent = CLABE;
+  if(CLABE){
+    document.getElementById('clabe').textContent = CLABE;
+    document.getElementById('banco').textContent = BANCO;
+    document.getElementById('titular').textContent = TITULAR;
+    document.getElementById('datos-pronto').hidden = true;
+    document.getElementById('datos-cuenta').hidden = false;
+    document.getElementById('copiar').hidden = false;
+  }
   verDatos.addEventListener('click', function(){
     var v = datos.classList.toggle('ver'); verDatos.setAttribute('aria-expanded', v);
   });
