@@ -2,6 +2,7 @@
 <html lang="es-MX">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="only light">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta property="og:title" content="Dalia y Lauro">
 <meta property="og:description" content="Nos casamos el 27 y 28 de febrero de 2027. Queremos que estés ahí.">
@@ -28,7 +29,7 @@
   --mano:"Playwrite MX", "Segoe Script", "Bradley Hand", cursive;
   --t-titulo:clamp(26px,7vw,34px); --t-cuerpo:clamp(14.5px,3.8vw,16px); --t-nota:13px; --t-rotulo:11.5px;
   --aire:clamp(56px,13vw,100px);
-  color-scheme:light;
+  color-scheme:only light;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -109,8 +110,10 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .evento{padding:4% 0}
 .evento + .evento{border-top:1px dashed var(--linea)}
 .evento .cuando{font-family:var(--titulo);text-transform:uppercase;font-size:clamp(15px,4.2vw,18px);letter-spacing:.06em;color:var(--tinta);margin:0}
-.evento .que{font-family:var(--rotulo);font-weight:400;text-transform:uppercase;letter-spacing:.14em;font-size:12px;margin:2px 0 6px}
-.evento .lugar{font-family:var(--rotulo);font-weight:400;text-transform:uppercase;letter-spacing:.1em;font-size:16px;color:var(--guinda);margin:0}
+.nw{white-space:nowrap}
+.evento .cuando .hora{display:block;font-size:.85em;letter-spacing:.1em}
+.evento .que{font-family:var(--rotulo);font-weight:400;text-transform:uppercase;letter-spacing:.14em;font-size:12px;margin:0 0 2px}
+.evento .lugar{font-family:var(--rotulo);font-weight:400;text-transform:uppercase;letter-spacing:.1em;font-size:16px;color:var(--guinda);margin:8px 0 0}
 .evento .ciudad{font-family:var(--rotulo);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--tinta-suave);margin:0 0 12px}
 .mapa{display:inline-flex;align-items:center;gap:6px;font-family:var(--rotulo);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--guinda);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
 .marco{position:absolute;padding:7px;background:linear-gradient(135deg,#5a3418,#2e1a0c 50%,#6e4426);box-shadow:0 10px 16px -6px rgba(40,20,10,.5)}
@@ -330,8 +333,8 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
           </div>
 
           <div class="evento">
-            <p class="cuando">Sábado 27 de febrero · 4:30 PM</p>
             <p class="que c-naranja">Ceremonia religiosa</p>
+            <p class="cuando"><span class="nw">Sábado 27 de febrero</span> <span class="nw hora">4:30 PM</span></p>
             <p class="lugar">Parroquia Jesús El Buen Pastor</p>
             <p class="ciudad">Monterrey, N.L.</p>
             <a class="mapa" href="https://www.google.com/maps/search/?api=1&query=Parroquia%20Jes%C3%BAs%20El%20Buen%20Pastor%20Monterrey" target="_blank" rel="noopener noreferrer">
@@ -340,8 +343,8 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
           </div>
 
           <div class="evento">
-            <p class="cuando">Domingo 28 de febrero · <span id="hora-dom">hora por confirmar</span></p>
             <p class="que c-verde">Boda civil y fiesta</p>
+            <p class="cuando"><span class="nw">Domingo 28 de febrero</span> <span id="hora-dom" class="nw hora">hora por confirmar</span></p>
             <p class="lugar">La Herencia</p>
             <p class="ciudad">Monterrey, N.L.</p>
             <a class="mapa" href="https://www.google.com/maps/search/?api=1&query=La%20Herencia%20eventos%20Monterrey" target="_blank" rel="noopener noreferrer">
