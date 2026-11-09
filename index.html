@@ -298,8 +298,11 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .portada .cierre-centro{margin-top:auto;display:flex;flex-direction:column;align-items:center}
 .portada .ovalo{color:#fbf0df;width:min(32vw,130px);filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
 .portada .nom{color:#fbf0df;margin-top:12px}
-.portada .fec{color:#e9b46a}
-.lugar-portada{margin:8px 0 0;font-family:var(--rotulo);font-weight:300;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:#f3e6d2}
+.portada .fec{font-family:var(--rotulo);font-weight:400;font-size:clamp(17px,4.8vw,20px);letter-spacing:.14em;text-transform:uppercase;color:#f6e9d4;margin-top:10px;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.lugar-portada{margin:6px 0 0;font-family:var(--rotulo);font-weight:400;font-size:clamp(12px,3.4vw,14px);letter-spacing:.24em;text-transform:uppercase;color:#e9b46a;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.portada .cierre-pie{font-family:var(--rotulo);font-weight:400;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#f6e9d4;display:flex;flex-direction:column;align-items:center;gap:6px;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.portada .cierre-pie span{font-size:18px;color:#e9b46a;animation:baja-flecha 1.8s ease-in-out infinite}
+@keyframes baja-flecha{50%{transform:translateY(5px)}}
 .final .cierre-foto{filter:grayscale(1) contrast(1.05) brightness(.6);object-position:50% 50%}
 .final .ovalo.chico{color:#fbf0df;width:min(30vw,120px)}
 .cierre-gracias{margin:10px 0 0;font-family:var(--mano);font-size:24px;color:#e9b46a}
@@ -366,7 +369,7 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
         <p class="fec">27 y 28 febrero, 2027</p>
         <p class="lugar-portada">Monterrey, N.L.</p>
       </div>
-      <a class="cierre-pie" href="#entrada">desliza para abrir tu invitación <span aria-hidden="true">↓</span></a>
+      <a class="cierre-pie" href="#entrada">Desliza para abrir tu invitación <span aria-hidden="true">↓</span></a>
     </div>
   </section>
 
