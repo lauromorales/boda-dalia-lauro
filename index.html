@@ -189,12 +189,15 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .dia b{font-family:var(--rotulo);font-weight:500;font-size:clamp(15px,4.3vw,18px);letter-spacing:.06em;color:var(--verde)}
 .dia span{font-family:var(--rotulo);font-size:clamp(10.5px,3vw,12px);letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-suave);line-height:1.35}
 .dia .fin{font-family:var(--titulo);font-style:italic;font-size:clamp(11px,3.1vw,12.5px);color:var(--tinta-suave);margin-top:2px;line-height:1.3}
-.vest-misa{margin-top:14px;padding:10px 6px 0;border-top:1px dashed var(--linea);display:flex;flex-direction:column;align-items:center;gap:2px;width:100%;text-align:center}
-.vest-misa svg{width:28px;height:28px;margin-bottom:0}
-.vm-titulo{margin:0;font-family:var(--rotulo);font-size:clamp(9.5px,2.7vw,10.5px);letter-spacing:.16em;text-transform:uppercase;color:var(--guinda)}
-.vm-tipo{margin:0;font-family:var(--mano);font-size:clamp(12px,3.4vw,14px);line-height:1.35;color:var(--verde)}
-.vm-nota{margin:1px 0 0;font-size:clamp(11px,3vw,12px);line-height:1.35;color:var(--tinta-suave)}
-.vm-invita{margin:14px 4px 0;font-family:var(--titulo);font-style:italic;font-size:clamp(11.5px,3.2vw,13px);line-height:1.45;color:var(--guinda);text-align:center}
+.vest-misa{margin-top:10px;display:flex;flex-direction:column;align-items:center;gap:3px;width:100%;text-align:center;padding:0 6px}
+.vest-misa svg{width:26px;height:26px;margin:4px 0 2px}
+.vm-titulo{margin:0 0 2px;font-family:var(--rotulo);font-size:clamp(9.5px,2.7vw,10.5px);letter-spacing:.2em;text-transform:uppercase;color:var(--guinda)}
+.vm-tipo{margin:0 0 6px;font-family:var(--mano);font-size:clamp(12px,3.4vw,14px);line-height:1.35;color:var(--verde)}
+.vm-nota{margin:0;font-size:clamp(11px,3vw,12px);line-height:1.4;color:var(--tinta-suave)}
+.vm-orn{margin:0;font-size:9px;letter-spacing:.5em;color:var(--amarillo-osc);line-height:1}
+.vm-invita{margin:18px 4px 0;padding:12px 10px 14px;border-radius:14px;background:var(--perla);border:1px solid var(--linea);display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center}
+.vm-inv1{margin:0;font-family:var(--rotulo);font-size:clamp(10px,2.8vw,11px);letter-spacing:.16em;text-transform:uppercase;color:var(--guinda)}
+.vm-inv2{margin:0;font-family:var(--titulo);font-style:italic;font-size:clamp(11.5px,3.2vw,13px);line-height:1.5;color:var(--tinta-suave)}
 .dia .pend{color:var(--naranja-osc);font-weight:400}
 
 /* ───── Vestimenta ───── */
@@ -498,12 +501,18 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
           </li>
         </ul>
         <div class="vest-misa">
+          <p class="vm-orn" aria-hidden="true">✦ ✦ ✦</p>
           <svg viewBox="0 0 48 48" fill="none" stroke="#e2650c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 8a3 3 0 1 1 3 3c-2 0-3 1-3 3v2M24 16L6 30c-2 1.5-1 4 1.5 4h33c2.5 0 3.5-2.5 1.5-4L24 16z"/></svg>
           <p class="vm-titulo">Vestimenta</p>
           <p class="vm-tipo">Casual formal y fresco</p>
-          <p class="vm-nota">No es obligatorio traje ni vestido: ven cómodo y arreglado.</p>
+          <p class="vm-nota">No es obligatorio traje ni vestido.</p>
+          <p class="vm-nota">Ven cómodo y arreglado.</p>
         </div>
-        <p class="vm-invita">La misa es opcional. Si quieres acompañarnos y ser testigo de este momento, serás muy bienvenido.</p>
+        <div class="vm-invita">
+          <p class="vm-orn" aria-hidden="true">✦</p>
+          <p class="vm-inv1">La misa es opcional.</p>
+          <p class="vm-inv2">Si quieres acompañarnos y ser testigo de este momento, serás muy bienvenido.</p>
+        </div>
       </div>
       <div class="dia">
         <h3>Domingo 28</h3>
