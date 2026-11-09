@@ -260,6 +260,17 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .secciones .contenido{padding:0 4px 22px;color:var(--tinta-suave);font-size:15px;text-align:center}
 .secciones .contenido p{margin:0 0 12px}
 .secciones strong{color:var(--tinta);font-weight:500}
+.cierre{position:relative;margin-top:var(--aire);margin-inline:calc(50% - 50vw);min-height:min(170vw,760px);display:flex;color:#fbf3e6;overflow:hidden;background:#1e1a1a}
+.cierre-foto{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 30%;filter:grayscale(1) contrast(1.05) brightness(.62)}
+.cierre::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,16,.55),rgba(20,16,16,.15) 35%,rgba(20,16,16,.2) 65%,rgba(20,16,16,.6))}
+.cierre-marco{position:relative;z-index:1;flex:1;margin:max(16px,env(safe-area-inset-left,0px));border:1px solid rgba(214,180,120,.75);border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:26px 14px 22px;text-align:center}
+.cierre-menu{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 18px;max-width:440px}
+.cierre-menu a{font-family:var(--rotulo);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#e9b46a;text-decoration:none;padding:4px 0;border-bottom:1px solid transparent}
+.cierre-menu a:hover,.cierre-menu a:focus-visible{border-bottom-color:#e9b46a}
+.cierre-nombres{margin:0;font-family:var(--titulo);font-weight:500;text-transform:uppercase;line-height:.92;font-size:clamp(64px,19vw,120px);letter-spacing:-.01em;display:flex;flex-direction:column;align-items:center;color:#fbf0df}
+.cierre-nombres .y{font-family:var(--script);text-transform:none;font-size:.55em;line-height:1;color:#e9b46a;margin:-.05em 0 -.08em}
+.cierre-datos{margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 26px;font-family:var(--rotulo);font-weight:300;font-size:17px;letter-spacing:.14em;text-transform:uppercase;color:#f3e6d2}
+.cierre-pie{margin:0;font-family:var(--mano);font-size:20px;color:#e9b46a}
 .pie{text-align:center;margin-top:52px;display:flex;flex-direction:column;align-items:center;gap:10px}
 .estampa{width:150px;height:auto;transform:rotate(-6deg)}
 
@@ -639,7 +650,7 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
   </section>
 
   <!-- SECCIONES EXTRA -->
-  <div class="secciones rev">
+  <div class="secciones rev" id="dudas">
     <details>
       <summary>Dónde hospedarse <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 1l5 5-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
       <div class="contenido">
@@ -661,16 +672,24 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
     </details>
   </div>
 
-  <div class="pie">
-    <svg class="estampa" viewBox="0 0 160 160" aria-label="Dalia y Lauro" role="img">
-      <path d="M14 20q6-8 12 0t12 0 12 0 12 0 12 0 12 0 12 0 12 0 12 0 12 0q8 6 0 12t0 12 0 12 0 12 0 12 0 12 0 12 0 12 0 12q-6 8-12 0t-12 0-12 0-12 0-12 0-12 0-12 0-12 0-12 0-12 0q-8-6 0-12t0-12 0-12 0-12 0-12 0-12 0-12 0-12 0-12z" fill="none" stroke="#b9500a" stroke-width="2.6"/>
-      <rect x="30" y="34" width="100" height="92" fill="none" stroke="#b9500a" stroke-width="2.6"/>
-      <text x="80" y="66" text-anchor="middle" font-family="Playwrite MX, cursive" font-size="17" fill="#b9500a">Dalia</text>
-      <text x="80" y="88" text-anchor="middle" font-family="Playwrite MX, cursive" font-size="15" fill="#b9500a">&amp;</text>
-      <text x="80" y="112" text-anchor="middle" font-family="Playwrite MX, cursive" font-size="17" fill="#b9500a">Lauro</text>
-    </svg>
-    <p class="rotulo">Te esperamos</p>
-  </div>
+  <section class="cierre" id="cierre" aria-label="Dalia y Lauro">
+    <img class="cierre-foto" src="foto-beso.jpg" alt="" loading="lazy">
+    <div class="cierre-marco">
+      <nav class="cierre-menu" aria-label="Secciones de la invitación">
+        <a href="#carta">Nos casamos</a>
+        <a href="#itinerario">Itinerario</a>
+        <a href="#vestimenta">Dress code</a>
+        <a href="#regalos">Lluvia de sobres</a>
+        <a href="#confirmar">Confirmar</a>
+        <a href="#dudas">Hospedaje y dudas</a>
+      </nav>
+      <div class="cierre-centro">
+        <p class="cierre-nombres"><span>Dalia</span><span class="y">&amp;</span><span>Lauro</span></p>
+        <div class="cierre-datos"><span>27 y 28 febrero, 2027</span><span>Monterrey, N.L.</span></div>
+      </div>
+      <p class="cierre-pie">Te esperamos</p>
+    </div>
+  </section>
 </div>
 
 <button class="musica" id="musica" type="button" aria-pressed="false" aria-label="Activar la música">
