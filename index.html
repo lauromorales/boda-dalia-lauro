@@ -230,7 +230,14 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .datos dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
 .datos dt{font-family:var(--rotulo);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-suave);padding-top:3px}
 .datos dd{margin:0;min-width:0;overflow-wrap:anywhere}
-.datos .pronto{margin:0;font-size:14.5px;line-height:1.5;color:var(--tinta-suave);text-align:center}
+.dato-fila{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px dashed var(--linea)}
+.dato-fila:last-child{border-bottom:0}
+.dato-fila > div{min-width:0;display:flex;flex-direction:column;gap:2px}
+.dato-et{font-family:var(--rotulo);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-suave)}
+.dato-val{font-size:16px;color:var(--tinta);overflow-wrap:anywhere}
+.dato-val.clabe{font-family:var(--rotulo);font-size:17px;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.datos .copiar{margin:0;flex:none}
+.datos .copiar.ok{background:var(--verde);border-color:var(--verde);color:var(--perla)}
 .copiar{margin-top:12px;background:none;border:1px solid var(--guinda);color:var(--guinda);border-radius:999px;padding:6px 14px;font-family:var(--rotulo);font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
 
 /* ───── Confirmar ───── */
@@ -628,13 +635,18 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
       </div>
     </div>
     <div class="datos" id="datos">
-      <p class="pronto" id="datos-pronto">Estamos abriendo nuestra cuenta. Muy pronto encontrarás aquí los datos para transferir.</p>
-      <dl id="datos-cuenta" hidden>
-        <dt>Banco</dt><dd id="banco"></dd>
-        <dt>Nombre</dt><dd id="titular"></dd>
-        <dt>CLABE</dt><dd id="clabe"></dd>
-      </dl>
-      <button class="copiar" type="button" id="copiar" hidden>Copiar CLABE</button>
+      <div class="dato-fila">
+        <div><span class="dato-et">Banco</span><span class="dato-val" id="d-banco">Santander</span></div>
+        <button class="copiar" type="button" data-copiar="d-banco">Copiar</button>
+      </div>
+      <div class="dato-fila">
+        <div><span class="dato-et">A nombre de</span><span class="dato-val" id="d-titular">Dalia Gurrola Cantú</span></div>
+        <button class="copiar" type="button" data-copiar="d-titular">Copiar</button>
+      </div>
+      <div class="dato-fila">
+        <div><span class="dato-et">CLABE</span><span class="dato-val clabe" id="d-clabe">014580606318138370</span></div>
+        <button class="copiar" type="button" data-copiar="d-clabe">Copiar</button>
+      </div>
     </div>
   </section>
 
@@ -757,9 +769,6 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
   var YOUTUBE_ID = 'HrZi18BoomE'; // canción de YouTube (suena con el reproductor oculto)
   var YOUTUBE_INICIO = 0;  // segundo en el que empieza
   var CANCION = '';        // opcional: archivo propio, ej. 'cancion.mp3' (se usa si YouTube no carga)
-  var CLABE = '';          // ej. '012345678901234567'
-  var BANCO = '';         // ej. 'BBVA'
-  var TITULAR = '';       // ej. 'Dalia Gurrola y Lauro Morales'
   // ===============================
 
   var doc = document.querySelector('.doc'); if(doc) doc.classList.add('cerrada');
@@ -823,22 +832,16 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 
   // Datos de transferencia
   var verDatos = document.getElementById('ver-datos'), datos = document.getElementById('datos');
-  if(CLABE){
-    document.getElementById('clabe').textContent = CLABE;
-    document.getElementById('banco').textContent = BANCO;
-    document.getElementById('titular').textContent = TITULAR;
-    document.getElementById('datos-pronto').hidden = true;
-    document.getElementById('datos-cuenta').hidden = false;
-    document.getElementById('copiar').hidden = false;
-  }
   verDatos.addEventListener('click', function(){
     var v = datos.classList.toggle('ver'); verDatos.setAttribute('aria-expanded', v);
   });
-  document.getElementById('copiar').addEventListener('click', function(){
-    if(!CLABE){ aviso('Aquí irá su CLABE'); return; }
-    var hecho = function(){ aviso('CLABE copiada'); };
-    var manual = function(){ var r=document.createRange(); r.selectNodeContents(document.getElementById('clabe')); var s=getSelection(); s.removeAllRanges(); s.addRange(r); aviso('Selecciónala y cópiala'); };
-    try { navigator.clipboard.writeText(CLABE).then(hecho, manual); } catch(e){ manual(); }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-copiar]'), function(b){
+    b.addEventListener('click', function(){
+      var el = document.getElementById(b.getAttribute('data-copiar')), txt = el.textContent.trim();
+      var hecho = function(){ b.textContent = '¡Copiado!'; b.classList.add('ok'); aviso('Copiado: ' + txt); setTimeout(function(){ b.textContent = 'Copiar'; b.classList.remove('ok'); }, 2000); };
+      var manual = function(){ var r = document.createRange(); r.selectNodeContents(el); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); aviso('Ya está seleccionado, cópialo'); };
+      try { navigator.clipboard.writeText(txt).then(hecho, manual); } catch(e){ manual(); }
+    });
   });
 
   // ====== CONFIRMACIONES (Google Sheets) ======
