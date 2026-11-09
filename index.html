@@ -98,14 +98,35 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .patas i:nth-child(2){right:10%;transform:skewX(-8deg)}
 .patas::before{content:"";position:absolute;left:6%;right:6%;bottom:-6px;height:12px;background:radial-gradient(ellipse,rgba(40,20,10,.28),transparent 70%)}
 
-/* Libreto animado (flipbook) */
+/* Libreto animado (flipbook): sujeto arriba, las hojas se sueltan desde abajo */
 .tele.libreto{padding-bottom:0;width:100%}
-.libro{position:relative;width:84%;max-width:360px;margin:0 auto;aspect-ratio:6/5;perspective:900px;transform:rotate(-2deg)}
-.libro .canto{position:absolute;inset:0;border-radius:4px;background:#fffdf8;box-shadow:2px 2px 0 #f1e7d4,4px 4px 0 #e9dcc3,6px 6px 0 #f1e7d4,8px 8px 0 #e3d4b8,10px 10px 0 #efe4cf,12px 12px 0 #ddcba9,14px 16px 22px -6px rgba(58,26,31,.45)}
-.libro .hoja{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;background:#fffdf8;border:9px solid #fffdf8;border-left-width:22px;border-radius:4px;transform-origin:0 50%;backface-visibility:hidden}
-.libro .hoja.vuela{box-shadow:2px 0 6px rgba(0,0,0,.18)}
-.libro .hoja.vuela.ida{transition:transform .085s ease-in,filter .085s;transform:rotateY(-118deg);filter:brightness(.85)}
-.libro .espiral{position:absolute;left:4px;top:6%;bottom:6%;width:14px;z-index:3;background:radial-gradient(circle at 50% 50%,transparent 3px,#6b5a4a 3.5px 5px,transparent 5.5px) 0 0/14px 13px repeat-y}
+.libro{position:relative;width:84%;max-width:360px;margin:18px auto 0;aspect-ratio:360/296;perspective:700px;perspective-origin:50% -30%;transform:rotate(-1.5deg)}
+.libro .canto{position:absolute;inset:0;border-radius:4px;background:#fffdf8;box-shadow:1px 2px 0 #f1e7d4,2px 4px 0 #e9dcc3,3px 6px 0 #f1e7d4,4px 8px 0 #e3d4b8,5px 10px 0 #efe4cf,6px 12px 0 #ddcba9,8px 16px 22px -6px rgba(58,26,31,.45)}
+.libro .hoja{position:absolute;inset:0;width:100%;height:100%;max-width:none;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(58,26,31,.06)}
+.libro .sombra{position:absolute;inset:0;border-radius:4px;pointer-events:none;background:linear-gradient(180deg,rgba(40,25,20,.38),rgba(40,25,20,.1) 60%,transparent);opacity:0}
+.libro.pasando .sombra{animation:sombra var(--vel) ease-in forwards}
+@keyframes sombra{0%{opacity:0}40%{opacity:1}100%{opacity:0}}
+.libro .curl{position:absolute;inset:0;transform-style:preserve-3d;pointer-events:none}
+.libro .tira{position:absolute;left:0;right:0;top:calc(100% - 1px);height:calc(100% + 1px);transform-origin:50% 0;transform-style:preserve-3d;background-image:var(--img);background-size:100% 600%;background-repeat:no-repeat;backface-visibility:hidden;animation-duration:var(--vel);animation-timing-function:cubic-bezier(.45,.05,.7,.4);animation-fill-mode:forwards;animation-play-state:paused}
+.libro .curl > .t0{top:0;height:calc(100% / 6 + 1px);border-radius:4px 4px 0 0}
+.libro .t5{border-radius:0 0 4px 4px}
+.libro .tira::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(255,255,255,.18) 50%,rgba(0,0,0,.12));opacity:0}
+.libro.pasando .tira{animation-play-state:running}
+.libro.pasando .tira::after{opacity:1}
+.libro .curl.reset .tira{animation:none}
+@keyframes curl0{0%{transform:rotateX(0)}45%{transform:rotateX(10deg)}100%{transform:rotateX(70deg)}}
+@keyframes curl1{0%{transform:rotateX(0)}45%{transform:rotateX(14deg)}100%{transform:rotateX(40deg)}}
+@keyframes curl2{0%{transform:rotateX(0)}45%{transform:rotateX(18deg)}100%{transform:rotateX(30deg)}}
+@keyframes curl3{0%{transform:rotateX(0)}45%{transform:rotateX(22deg)}100%{transform:rotateX(20deg)}}
+@keyframes curl4{0%{transform:rotateX(0)}45%{transform:rotateX(26deg)}100%{transform:rotateX(12deg)}}
+@keyframes curl5{0%{transform:rotateX(0)}45%{transform:rotateX(26deg)}100%{transform:rotateX(8deg)}}
+.libro .t0{background-position:0 0.0000%;animation-name:curl0}
+.libro .t1{background-position:0 20.0000%;animation-name:curl1}
+.libro .t2{background-position:0 40.0000%;animation-name:curl2}
+.libro .t3{background-position:0 60.0000%;animation-name:curl3}
+.libro .t4{background-position:0 80.0000%;animation-name:curl4}
+.libro .t5{background-position:0 100.0000%;animation-name:curl5}
+.libro .espiral{position:absolute;top:3px;left:6%;right:6%;height:14px;z-index:3;background:radial-gradient(circle at 50% 50%,transparent 3px,#6b5a4a 3.5px 5px,transparent 5.5px) 0 0/13px 14px repeat-x}
 /* Tira de película animada */
 .tele.pelicula{padding-bottom:0;width:100%}
 .film{position:relative;background:#2a1a1d;padding:26px 0;border-radius:4px;overflow:hidden;box-shadow:0 18px 26px -16px rgba(40,20,10,.6)}
@@ -171,6 +192,11 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .dia .pend{color:var(--naranja-osc);font-weight:400}
 
 /* ───── Vestimenta ───── */
+.por-evento{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;margin:-6px 0 20px}
+.evento-vest{background:var(--perla);border:1px solid var(--linea);border-radius:16px;padding:14px 10px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.cuando-vest{margin:0;line-height:1.5;font-family:var(--rotulo);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--guinda)}
+.tipo-vest{margin:0;font-family:var(--mano);font-size:17px;line-height:1.35;color:var(--verde)}
+.nota-vest{margin:0;font-size:13px;line-height:1.4;color:var(--tinta-suave)}
 .sub{margin:-10px 0 16px}
 .intro{max-width:36ch;margin:0 auto 28px;color:var(--tinta-suave)}
 .fila{display:grid;grid-template-columns:30% 1fr;gap:16px;align-items:center;width:100%}
@@ -404,8 +430,9 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
       <div class="tele libreto" id="tele">
         <div class="libro" role="img" aria-label="Libreto animado con la pedida de mano">
           <div class="canto" aria-hidden="true"></div>
-          <img class="hoja base" id="lb-base" src="libreto/h01.jpg" alt="">
-          <img class="hoja vuela" id="lb-hoja" src="libreto/h01.jpg" alt="">
+          <img class="hoja base" id="lb-base" src="libreto/h02.jpg" alt="">
+          <div class="sombra" aria-hidden="true"></div>
+          <div class="curl" id="lb-curl" aria-hidden="true" style="--img:url(libreto/h01.jpg)"><div class="tira t0"><div class="tira t1"><div class="tira t2"><div class="tira t3"><div class="tira t4"><div class="tira t5"></div></div></div></div></div></div></div>
           <div class="espiral" aria-hidden="true"></div>
         </div>
       </div>
@@ -493,7 +520,18 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
   <!-- VESTIMENTA -->
   <section class="bloque" id="vestimenta">
     <h2 class="c-verde rev">código de vestimenta</h2>
-    <p class="sub rotulo rev">Formal · llénalo de color</p>
+    <div class="por-evento rev">
+      <div class="evento-vest">
+        <p class="cuando-vest">Misa<br>sábado 27</p>
+        <p class="tipo-vest">Casual formal y fresco</p>
+        <p class="nota-vest">No es obligatorio traje ni vestido: ven cómodo y arreglado.</p>
+      </div>
+      <div class="evento-vest">
+        <p class="cuando-vest">Civil y fiesta<br>domingo 28</p>
+        <p class="tipo-vest">Formal y de color</p>
+        <p class="nota-vest">Aquí abajo te dejamos ideas de colores.</p>
+      </div>
+    </div>
     <p class="intro rev">Queremos una boda llena de color, como nosotros. Estas son ideas para inspirarte; lo que de verdad nos importa es que estés.</p>
 
     <div class="tarjeta rev">
@@ -855,18 +893,22 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 
   // ====== LIBRETO (flipbook) ======
   (function(){
-    var N = 40, base = document.getElementById('lb-base'), hoja = document.getElementById('lb-hoja');
-    if(!base || !hoja) return;
+    var N = 40, VEL = 230, PAUSA = 1500;
+    var libro = document.querySelector('.libro'), base = document.getElementById('lb-base'), curl = document.getElementById('lb-curl');
+    if(!libro || !base || !curl) return;
+    libro.style.setProperty('--vel', VEL + 'ms');
     var src = function(n){ return 'libreto/h' + String(n + 1).padStart(2,'0') + '.jpg'; };
-    var cache = []; for(var k = 0; k < N; k++){ var im = new Image(); im.src = src(k); cache.push(im); }
+    for(var k = 0; k < N; k++){ new Image().src = src(k); }
     var i = 0, corriendo = false, quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     function paso(){
-      hoja.classList.remove('ida'); hoja.src = src(i);
-      void hoja.offsetWidth;
+      // la hoja que se levanta muestra el cuadro actual; debajo ya está el siguiente
+      libro.classList.remove('pasando'); curl.classList.add('reset');
+      curl.style.setProperty('--img', 'url(' + src(i) + ')');
       var sig = (i + 1) % N; base.src = src(sig);
-      requestAnimationFrame(function(){ hoja.classList.add('ida'); });
+      void curl.offsetWidth;
+      curl.classList.remove('reset'); libro.classList.add('pasando');
       i = sig;
-      setTimeout(paso, i === 0 ? 1400 : 110);
+      setTimeout(paso, i === 0 ? PAUSA : VEL * 0.72);
     }
     window.empezarLibreto = function(){ if(corriendo || quieto) return; corriendo = true; setTimeout(paso, 500); };
   })();
