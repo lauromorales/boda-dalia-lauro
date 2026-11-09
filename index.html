@@ -270,6 +270,15 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .cierre-datos{margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 26px;font-family:var(--rotulo);font-weight:300;font-size:17px;letter-spacing:.14em;text-transform:uppercase;color:#f3e6d2}
 .cierre-centro{margin-top:auto}
 .cierre-pie{margin:18px 0 0;text-decoration:none;font-family:var(--mano);font-size:20px;color:#e9b46a}
+.portada{margin-top:0}
+.portada .cierre-centro{margin-top:auto;display:flex;flex-direction:column;align-items:center}
+.portada .ovalo{color:#fbf0df;width:min(32vw,130px);filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
+.portada .nom{color:#fbf0df;margin-top:12px}
+.portada .fec{color:#e9b46a}
+.lugar-portada{margin:8px 0 0;font-family:var(--rotulo);font-weight:300;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:#f3e6d2}
+.final .cierre-foto{filter:grayscale(1) contrast(1.05) brightness(.6);object-position:50% 50%}
+.final .ovalo.chico{color:#fbf0df;width:min(30vw,120px)}
+.cierre-gracias{margin:10px 0 0;font-family:var(--mano);font-size:24px;color:#e9b46a}
 .pie{text-align:center;margin-top:52px;display:flex;flex-direction:column;align-items:center;gap:10px}
 .estampa{width:150px;height:auto;transform:rotate(-6deg)}
 
@@ -320,13 +329,22 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 
 <div class="doc">
 
+  <!-- PORTADA -->
+  <section class="cierre portada" id="portada" aria-label="Dalia y Lauro, 27 y 28 de febrero de 2027">
+    <img class="cierre-foto" src="foto-cierre.jpg" alt="Lauro cargando a Dalia en un campo, en blanco y negro">
+    <div class="cierre-marco">
+      <div class="cierre-centro">
+        <svg class="ovalo" viewBox="0 0 200 260" role="img" aria-label="Monograma D L"><use href="#monograma"/></svg>
+        <p class="nom">Dalia y Lauro</p>
+        <p class="fec">27 y 28 febrero, 2027</p>
+        <p class="lugar-portada">Monterrey, N.L.</p>
+      </div>
+      <a class="cierre-pie" href="#entrada">desliza para abrir tu invitación <span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+
   <!-- ENTRADA -->
   <section class="entrada" id="entrada" aria-label="Dalia y Lauro, 27 y 28 de febrero de 2027">
-    <div class="marca">
-      <svg class="ovalo" viewBox="0 0 200 260" role="img" aria-label="Monograma D L" style="color:var(--guinda)"><use href="#monograma"/></svg>
-      <p class="nom">Dalia y Lauro</p>
-      <p class="fec">27 y 28 febrero, 2027</p>
-    </div>
 
     <div class="escenario">
       <div class="sobre" id="sobre" role="button" tabindex="0" aria-label="Abrir la invitación">
@@ -391,27 +409,7 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 
     <div class="abajo">
       <p class="aviso">toca para abrir</p>
-      <a href="#cierre" class="desliza rotulo">Desliza<span aria-hidden="true"></span></a>
-    </div>
-  </section>
-
-  <!-- PORTADA CON ÍNDICE -->
-  <section class="cierre" id="cierre" aria-label="Dalia y Lauro">
-    <img class="cierre-foto" src="foto-cierre.jpg" alt="" loading="lazy">
-    <div class="cierre-marco">
-      <nav class="cierre-menu" aria-label="Secciones de la invitación">
-        <a href="#carta">Nos casamos</a>
-        <a href="#itinerario">Itinerario</a>
-        <a href="#vestimenta">Dress code</a>
-        <a href="#regalos">Lluvia de sobres</a>
-        <a href="#confirmar">Confirmar</a>
-        <a href="#dudas">Hospedaje y dudas</a>
-      </nav>
-      <div class="cierre-centro">
-        <p class="cierre-nombres"><span>Dalia</span><span class="y">&amp;</span><span>Lauro</span></p>
-        <div class="cierre-datos"><span>27 y 28 febrero, 2027</span><span>Monterrey, N.L.</span></div>
-      </div>
-      <a class="cierre-pie" href="#carta">desliza para conocer los detalles <span aria-hidden="true">↓</span></a>
+      <a href="#carta" class="desliza rotulo">Desliza<span aria-hidden="true"></span></a>
     </div>
   </section>
 
@@ -691,16 +689,24 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
     </details>
   </div>
 
-  <div class="pie">
-    <svg class="estampa" viewBox="0 0 160 160" aria-label="Dalia y Lauro" role="img">
-      <path d="M14 20q6-8 12 0t12 0 12 0 12 0 12 0 12 0 12 0 12 0 12 0 12 0q8 6 0 12t0 12 0 12 0 12 0 12 0 12 0 12 0 12 0 12q-6 8-12 0t-12 0-12 0-12 0-12 0-12 0-12 0-12 0-12 0-12 0q-8-6 0-12t0-12 0-12 0-12 0-12 0-12 0-12 0-12 0-12z" fill="none" stroke="#b9500a" stroke-width="2.6"/>
-      <rect x="30" y="34" width="100" height="92" fill="none" stroke="#b9500a" stroke-width="2.6"/>
-      <text x="80" y="66" text-anchor="middle" font-family="Playwrite MX, cursive" font-size="17" fill="#b9500a">Dalia</text>
-      <text x="80" y="88" text-anchor="middle" font-family="Playwrite MX, cursive" font-size="15" fill="#b9500a">&amp;</text>
-      <text x="80" y="112" text-anchor="middle" font-family="Playwrite MX, cursive" font-size="17" fill="#b9500a">Lauro</text>
-    </svg>
-    <p class="rotulo">Te esperamos</p>
-  </div>
+  <!-- CIERRE CON ÍNDICE -->
+  <section class="cierre final" id="cierre" aria-label="Índice de la invitación">
+    <img class="cierre-foto" src="foto-final.jpg" alt="Dalia y Lauro con los brazos abiertos en un campo" loading="lazy">
+    <div class="cierre-marco">
+      <nav class="cierre-menu" aria-label="Secciones de la invitación">
+        <a href="#carta">Nos casamos</a>
+        <a href="#itinerario">Itinerario</a>
+        <a href="#vestimenta">Dress code</a>
+        <a href="#regalos">Lluvia de sobres</a>
+        <a href="#confirmar">Confirmar</a>
+        <a href="#dudas">Hospedaje y dudas</a>
+      </nav>
+      <div class="cierre-centro">
+        <svg class="ovalo chico" viewBox="0 0 200 260" role="img" aria-label="Monograma D L"><use href="#monograma"/></svg>
+        <p class="cierre-gracias">Te esperamos</p>
+      </div>
+    </div>
+  </section>
 </div>
 
 <button class="musica" id="musica" type="button" aria-pressed="false" aria-label="Activar la música">
