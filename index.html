@@ -328,6 +328,9 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
 .toast{position:fixed;left:50%;bottom:calc(72px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tinta);color:var(--perla);font-family:var(--rotulo);font-size:12px;letter-spacing:.08em;padding:10px 16px;border-radius:8px;z-index:30;opacity:0;transition:opacity .3s;pointer-events:none;max-width:calc(100% - 40px);text-align:center}
 .toast.ver{opacity:1}
 
+/* Todo lo que va después del sobre queda oculto hasta abrirlo */
+.doc.cerrada #entrada ~ *{display:none!important}
+.doc.cerrada{padding-bottom:0}
 /* Estado abierto */
 .listo .marca,.listo .tele{display:block}
 .listo .desliza{display:flex}
@@ -538,7 +541,6 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
   <section class="bloque" id="vestimenta">
     <h2 class="c-verde rev">código de vestimenta</h2>
     <p class="sub rotulo rev">Civil y fiesta · domingo 28 · formal y de color</p>
-    </div>
     <p class="intro rev">Queremos una boda llena de color, como nosotros. Estas son ideas para inspirarte; lo que de verdad nos importa es que estés.</p>
 
     <div class="tarjeta rev">
@@ -776,6 +778,7 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
   var TITULAR = '';       // ej. 'Dalia Gurrola y Lauro Morales'
   // ===============================
 
+  var doc = document.querySelector('.doc'); if(doc) doc.classList.add('cerrada');
   var root = document.getElementById('entrada');
   var sobre = document.getElementById('sobre');
   var tele = document.getElementById('tele');
@@ -824,6 +827,7 @@ h2{font-family:var(--mano);font-weight:400;font-size:var(--t-titulo);color:var(-
     if(abierto) return; abierto = true;
     var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     root.classList.add('abierto');
+    if(doc) doc.classList.remove('cerrada');
     setTimeout(function(){ root.classList.add('saliendo'); }, reducido ? 0 : 900);
     reproducirVideo(); // dentro del toque, para que el iPhone lo permita
     setTimeout(function(){ root.classList.add('listo'); tele.classList.add('encender'); if(window.empezarLibreto) window.empezarLibreto(); }, reducido ? 0 : 1800);
