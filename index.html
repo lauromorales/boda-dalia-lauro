@@ -158,6 +158,13 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
 
 /* ───── Itinerario ───── */
 .dias{display:grid;grid-template-columns:1fr 1fr;gap:0 14px;width:100%;align-items:start}
+.carta-fechas{margin:0;font-family:var(--titulo);text-transform:uppercase;font-size:clamp(15px,4.2vw,18px);letter-spacing:.06em;line-height:1.5;color:var(--tinta)}
+.carta-ciudad{margin:4px 0 14px;font-family:var(--rotulo);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta-suave)}
+.dia-lugar{display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:10px;text-align:center;padding:0 4px}
+.dia-lugar .lugar{margin:0;font-family:var(--rotulo);font-weight:400;text-transform:uppercase;letter-spacing:.08em;font-size:clamp(12px,3.5vw,14px);line-height:1.3;color:var(--guinda)}
+.dia-lugar .ciudad{margin:0 0 4px;font-family:var(--rotulo);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-suave)}
+.dia-lugar .mapa{font-size:10px;letter-spacing:.14em;margin-top:2px}
+.dia .dia-lugar .mapa svg{width:10px;height:12px;padding:0;margin:0}
 .dia{display:flex;flex-direction:column;align-items:center;width:100%;min-width:0}
 .dia + .dia{border-left:1px solid var(--linea)}
 .dia h3{margin:0;font-family:var(--rotulo);font-weight:500;font-size:clamp(13px,3.7vw,15px);letter-spacing:.16em;text-transform:uppercase;color:var(--guinda);text-align:center}
@@ -467,25 +474,9 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
             <div class="casilla"><b id="m">—</b><small>min</small></div>
           </div>
 
-          <div class="evento">
-            <p class="que c-naranja">Ceremonia religiosa</p>
-            <p class="cuando"><span class="nw">Sábado 27 de febrero</span> <span class="nw hora">4:30 PM</span></p>
-            <p class="lugar">Parroquia Jesús El Buen Pastor</p>
-            <p class="ciudad">Monterrey, N.L.</p>
-            <a class="mapa" href="https://www.google.com/maps/search/?api=1&query=Parroquia%20Jes%C3%BAs%20El%20Buen%20Pastor%20Monterrey" target="_blank" rel="noopener noreferrer">
-              <svg width="10" height="12" viewBox="0 0 11 13" fill="none" aria-hidden="true"><path d="M5.5 1C3.29 1 1.5 2.79 1.5 5c0 3 4 7 4 7s4-4 4-7c0-2.21-1.79-4-4-4z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="5.5" cy="5" r="1.4" stroke="currentColor" stroke-width="1.2"/></svg>
-              Cómo llegar</a>
-          </div>
-
-          <div class="evento">
-            <p class="que c-verde">Boda civil y fiesta</p>
-            <p class="cuando"><span class="nw">Domingo 28 de febrero</span> <span id="hora-dom" class="nw hora">4:30 PM</span></p>
-            <p class="lugar">La Herencia</p>
-            <p class="ciudad">Monterrey, N.L.</p>
-            <a class="mapa" href="https://www.google.com/maps/search/?api=1&query=La%20Herencia%20eventos%20Monterrey" target="_blank" rel="noopener noreferrer">
-              <svg width="10" height="12" viewBox="0 0 11 13" fill="none" aria-hidden="true"><path d="M5.5 1C3.29 1 1.5 2.79 1.5 5c0 3 4 7 4 7s4-4 4-7c0-2.21-1.79-4-4-4z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="5.5" cy="5" r="1.4" stroke="currentColor" stroke-width="1.2"/></svg>
-              Cómo llegar</a>
-          </div>
+          <p class="carta-fechas">Sábado 27 y domingo 28<br>de febrero de 2027</p>
+          <p class="carta-ciudad">Monterrey, N.L.</p>
+          <a class="mapa" href="#itinerario">Ver itinerario y ubicaciones ↓</a>
         </div>
       </div>
     </div>
@@ -497,6 +488,13 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
     <div class="dias rev">
       <div class="dia">
         <h3>Sábado 27</h3>
+        <div class="dia-lugar">
+          <p class="lugar">Parroquia Jesús El Buen Pastor</p>
+          <p class="ciudad">Monterrey, N.L.</p>
+          <a class="mapa" href="https://www.google.com/maps/search/?api=1&query=Parroquia%20Jes%C3%BAs%20El%20Buen%20Pastor%20Monterrey" target="_blank" rel="noopener noreferrer">
+          <svg width="10" height="12" viewBox="0 0 11 13" fill="none" aria-hidden="true"><path d="M5.5 1C3.29 1 1.5 2.79 1.5 5c0 3 4 7 4 7s4-4 4-7c0-2.21-1.79-4-4-4z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="5.5" cy="5" r="1.4" stroke="currentColor" stroke-width="1.2"/></svg>
+          Cómo llegar</a>
+        </div>
         <ul>
           <li>
             <svg viewBox="40 10 120 132" fill="none" stroke="#8f1734" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M100 14 v14 M94 20 h12"/><path d="M84 60 L100 30 L116 60"/><path d="M86 60 V138 M114 60 V138"/><path d="M95 78 a5 5 0 0 1 10 0 v8 h-10 z" stroke-width="3"/><path d="M114 84 L150 84 L150 138 M86 84 L50 84 L50 138"/><path d="M44 138 H156"/><path d="M93 138 v-18 a7 7 0 0 1 14 0 v18" stroke="#e2650c"/><path d="M62 102 a4 4 0 0 1 8 0 v12 h-8 z M130 102 a4 4 0 0 1 8 0 v12 h-8 z" stroke-width="3"/></svg>
@@ -519,6 +517,13 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
       </div>
       <div class="dia">
         <h3>Domingo 28</h3>
+        <div class="dia-lugar">
+          <p class="lugar">La Herencia</p>
+          <p class="ciudad">Monterrey, N.L.</p>
+          <a class="mapa" href="https://www.google.com/maps/search/?api=1&query=La%20Herencia%20eventos%20Monterrey" target="_blank" rel="noopener noreferrer">
+          <svg width="10" height="12" viewBox="0 0 11 13" fill="none" aria-hidden="true"><path d="M5.5 1C3.29 1 1.5 2.79 1.5 5c0 3 4 7 4 7s4-4 4-7c0-2.21-1.79-4-4-4z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="5.5" cy="5" r="1.4" stroke="currentColor" stroke-width="1.2"/></svg>
+          Cómo llegar</a>
+        </div>
         <ul>
           <li>
             <svg viewBox="0 0 48 48" fill="none" stroke="#e2650c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 30c6-2 10-6 16-6l8 2c2 1 1 4-1 4h-7M4 38l6-2c6 2 12 2 18-2l12-8c2-1 4 1 3 3l-9 9c-6 5-14 6-22 4"/><circle cx="31" cy="12" r="4"/><path d="M31 8l-2-3h4z" fill="#8f1734" stroke="#8f1734"/></svg>
