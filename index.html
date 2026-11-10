@@ -14,7 +14,7 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Oswald:wght@300;400;500&family=Pinyon+Script&family=Playwrite+MX:wght@300;400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Oswald:wght@300;400;500&family=Pinyon+Script&family=Dancing+Script:wght@400;600;700&display=swap">
 <style>
 /* Papelería del mood board: crema cálido, letra manuscrita monolínea para títulos (cada sección en un color de la paleta), monograma D·L en óvalo festoneado. Paleta fija, sin modo oscuro. */
 :root{
@@ -26,7 +26,7 @@
   --titulo:"Bodoni Moda", Didot, "Bodoni 72", Georgia, serif;
   --rotulo:"Oswald", "Arial Narrow", system-ui, sans-serif;
   --script:"Pinyon Script", "Snell Roundhand", cursive;
-  --mano:"Playwrite MX", "Segoe Script", "Bradley Hand", cursive;
+  --mano:"Dancing Script", "Segoe Script", "Bradley Hand", cursive;
   --t-titulo:clamp(26px,7vw,34px); --t-cuerpo:clamp(14.5px,3.8vw,16px); --t-nota:13px; --t-rotulo:11.5px;
   --aire:clamp(56px,13vw,100px);
   color-scheme:only light;
@@ -35,7 +35,7 @@
 html{scroll-behavior:smooth}
 body{background:var(--crema);color:var(--tinta);font-family:var(--titulo);font-size:var(--t-cuerpo);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 .doc{max-width:520px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));padding-bottom:90px}
-h2{font-family:var(--titulo);font-weight:400;text-transform:uppercase;letter-spacing:.01em;font-size:clamp(30px,8.6vw,42px);color:var(--guinda);line-height:1.02;padding-top:.12em;margin:0 0 20px;text-align:center;text-wrap:balance}
+h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:var(--guinda);line-height:1.15;margin:0 0 20px;text-align:center;text-wrap:balance}
 .c-naranja{color:var(--naranja)} .c-verde{color:var(--verde)} .c-amarillo{color:var(--amarillo-osc)} .c-olivo{color:var(--olivo)}
 .rotulo{font-family:var(--rotulo);font-size:var(--t-rotulo);letter-spacing:.2em;text-transform:uppercase;color:var(--tinta-suave)}
 .bloque{padding-block:var(--aire) 0;display:flex;flex-direction:column;align-items:center;text-align:center}
@@ -125,7 +125,7 @@ h2{font-family:var(--titulo);font-weight:400;text-transform:uppercase;letter-spa
 .carta-zona{position:relative;width:100%;padding-bottom:150px}
 .carta{position:relative;background-color:var(--papel);padding:15% 8% 30%;clip-path:polygon(0 1%,4% 0,9% 1.2%,15% .3%,22% 1%,30% 0,37% .9%,45% .2%,53% 1.1%,61% .1%,68% 1%,76% .2%,84% 1.1%,91% .3%,96% 1%,100% .2%,99.4% 8%,100% 17%,99.2% 27%,100% 38%,99.4% 49%,100% 60%,99.3% 71%,100% 82%,99.5% 92%,100% 99.6%,95% 99%,88% 100%,80% 99.1%,71% 100%,62% 99.2%,53% 100%,44% 99.1%,35% 100%,26% 99.2%,17% 100%,9% 99.1%,3% 100%,0 99.4%,.6% 91%,0 80%,.7% 69%,0 58%,.6% 47%,0 36%,.7% 25%,0 14%)}
 .carta-sombra{filter:drop-shadow(0 14px 18px rgba(58,26,31,.18))}
-.carta h3{font-family:var(--titulo);font-weight:400;text-transform:uppercase;letter-spacing:.01em;color:var(--guinda);font-size:clamp(32px,9vw,44px);margin:0 0 6%;line-height:1}
+.carta h3{font-family:var(--mano);font-weight:600;color:var(--guinda);font-size:clamp(38px,10.5vw,50px);margin:0 0 5%;line-height:1.15}
 .reloj{display:flex;justify-content:center;gap:12%;margin-bottom:6%}
 .casilla{display:flex;flex-direction:column;align-items:center}
 .casilla b{font-family:var(--titulo);font-weight:400;font-size:clamp(22px,6vw,28px);color:var(--tinta);font-variant-numeric:tabular-nums;line-height:1.2}
@@ -197,8 +197,7 @@ h2{font-family:var(--titulo);font-weight:400;text-transform:uppercase;letter-spa
 .tonos span{font-family:var(--rotulo);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-suave);line-height:1.3}
 .tarjeta{width:100%;background:var(--perla);border:1px solid var(--linea);border-radius:20px;padding:22px 16px 26px;display:flex;flex-direction:column;align-items:center;gap:14px;box-shadow:0 10px 24px -18px rgba(58,26,31,.35)}
 .tarjeta + .tarjeta{margin-top:22px}
-.quien{margin:0;font-family:var(--titulo);font-weight:400;text-transform:uppercase;letter-spacing:.01em;letter-spacing:.06em;font-size:26px;line-height:1.2;color:var(--olivo)}
-.de{font-family:var(--script);text-transform:none;font-size:1.25em;line-height:0;letter-spacing:0;margin:0 .02em 0 -.05em;position:relative;top:.12em}
+.quien{margin:0;font-family:var(--mano);font-weight:600;font-size:34px;line-height:1.2;color:var(--olivo)}
 .quien.c-naranja{color:var(--naranja)}
 .mas{margin:4px 0 0;font-family:var(--mano);font-size:14px;line-height:1.5;color:var(--naranja-osc)}
 .evita{width:100%;border-top:1px dashed var(--linea);padding-top:18px;margin-top:6px}
@@ -534,7 +533,7 @@ h2{font-family:var(--titulo);font-weight:400;text-transform:uppercase;letter-spa
 
   <!-- VESTIMENTA -->
   <section class="bloque" id="vestimenta">
-    <h2 class="c-verde rev">Código<br><span class="de">de</span>vestimenta</h2>
+    <h2 class="c-verde rev">Código de vestimenta</h2>
     <p class="sub rotulo rev">Civil y fiesta · domingo 28 · formal y de color</p>
     <p class="intro rev">Queremos una boda llena de color, como nosotros. Estas son ideas para inspirarte; lo que de verdad nos importa es que estés.</p>
 
@@ -602,7 +601,7 @@ h2{font-family:var(--titulo);font-weight:400;text-transform:uppercase;letter-spa
 
   <!-- CLIMA -->
   <section class="bloque" id="clima">
-    <h2 class="c-amarillo rev"><span class="de">el</span>clima<br><span class="de">esos</span>días</h2>
+    <h2 class="c-amarillo rev">El clima esos días</h2>
     <div class="clima rev">
       <div>
         <svg viewBox="0 0 40 40" fill="none" stroke="#e2650c" stroke-width="1.4" aria-label="Sol" role="img"><circle cx="20" cy="20" r="7" fill="#f0b43a"/><path d="M20 4v5M20 31v5M4 20h5M31 20h5M8.7 8.7l3.5 3.5M27.8 27.8l3.5 3.5M8.7 31.3l3.5-3.5M27.8 12.2l3.5-3.5"/></svg>
@@ -623,7 +622,7 @@ h2{font-family:var(--titulo);font-weight:400;text-transform:uppercase;letter-spa
       <g transform="rotate(7 80 40)"><rect x="54" y="20" width="52" height="34" rx="3" stroke="#8f1734" stroke-width="2"/><path d="M55 22l25 18 25-18" stroke="#8f1734" stroke-width="2"/><path d="M80 44c-3-4-9-2-7 3 1 3 7 6 7 6s6-3 7-6c2-5-4-7-7-3z" fill="#8f1734" stroke="none"/></g>
       <path d="M22 14l1 6M30 8l-1 7M98 66l2 6M106 60l-2 6" stroke="#f0b43a" stroke-width="2"/>
     </svg>
-    <h2 class="rev">Lluvia<br><span class="de">de</span>sobres</h2>
+    <h2 class="rev">Lluvia de sobres</h2>
     <p class="regalo rev"><span class="linea">Tu presencia es nuestro mejor regalo.</span> Si además quieres tener un detalle con nosotros, lo recibiremos con mucho cariño en sobre o por transferencia. Nos ayudará a empezar esta nueva etapa juntos.</p>
     <div class="formas rev">
       <div class="forma">
@@ -655,7 +654,7 @@ h2{font-family:var(--titulo);font-weight:400;text-transform:uppercase;letter-spa
 
   <!-- CONFIRMAR -->
   <section class="bloque" id="confirmar">
-    <h2 class="c-naranja rev">Confirma<br><span class="de">tu</span>asistencia</h2>
+    <h2 class="c-naranja rev">Confirma tu asistencia</h2>
     <button class="confirmar rev" type="button" id="abrir-form" aria-expanded="false" aria-controls="form-rsvp">
       <svg viewBox="20 18 170 124" aria-hidden="true"><g fill="none" stroke-linecap="round" stroke-linejoin="round">
 <g transform="rotate(-5 90 90)"><rect x="30" y="50" width="120" height="80" rx="5" stroke="#8f1734" stroke-width="2.4"/>
