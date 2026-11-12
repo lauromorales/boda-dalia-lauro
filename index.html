@@ -299,9 +299,10 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
 .cierre-centro{margin-top:auto}
 .cierre-pie{margin:18px 0 0;text-decoration:none;font-family:var(--mano);font-size:20px;color:#e9b46a}
 .portada{margin-top:0}
-.portada .cierre-centro{margin-top:auto;display:flex;flex-direction:column;align-items:center}
-.portada .ovalo{color:#fbf0df;width:min(32vw,130px);filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
-.portada .nom{color:#fbf0df;margin-top:12px}
+.portada .cierre-centro{margin:0 0 auto;display:flex;flex-direction:column;align-items:center}
+.portada .cierre-foto{height:90%;bottom:auto;top:0;-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent 100%);mask-image:linear-gradient(180deg,#000 80%,transparent 100%)}
+.portada .ovalo{color:#fbf0df;width:min(24vw,96px);filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
+.portada .nom{color:#fbf0df;margin-top:8px}
 .portada .fec{font-family:var(--rotulo);font-weight:400;font-size:clamp(17px,4.8vw,20px);letter-spacing:.14em;text-transform:uppercase;color:#f6e9d4;margin-top:10px;text-shadow:0 1px 6px rgba(0,0,0,.5)}
 .lugar-portada{margin:6px 0 0;font-family:var(--rotulo);font-weight:400;font-size:clamp(12px,3.4vw,14px);letter-spacing:.24em;text-transform:uppercase;color:#e9b46a;text-shadow:0 1px 6px rgba(0,0,0,.5)}
 .portada .cierre-pie{font-family:var(--rotulo);font-weight:400;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#f6e9d4;display:flex;flex-direction:column;align-items:center;gap:6px;text-shadow:0 1px 6px rgba(0,0,0,.5)}
@@ -369,7 +370,7 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
 
   <!-- PORTADA -->
   <section class="cierre portada" id="portada" aria-label="Dalia y Lauro, 27 y 28 de febrero de 2027">
-    <img class="cierre-foto" src="foto-cierre.jpg" alt="Lauro cargando a Dalia en un campo, en blanco y negro">
+    <img class="cierre-foto" src="foto-portada.jpg" alt="Dalia y Lauro riendo a punto de besarse, en blanco y negro">
     <div class="cierre-marco">
       <div class="cierre-centro">
         <svg class="ovalo" viewBox="0 0 200 260" role="img" aria-label="Monograma D L"><use href="#monograma"/></svg>
