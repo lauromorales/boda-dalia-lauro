@@ -2,6 +2,7 @@
 <html lang="es-MX">
 <head>
 <meta charset="utf-8">
+<script>if(location.protocol==='http:'&&location.hostname!=='localhost'&&location.hostname!=='127.0.0.1'){location.replace('https://'+location.host+location.pathname+location.search+location.hash)}</script>
 <meta name="color-scheme" content="only light">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta property="og:title" content="Dalia y Lauro">
@@ -413,7 +414,7 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
       <div class="tele linea" id="tele">
         <div class="tv">
           <div class="pantalla">
-            <video id="video-tele" src="video.mp4" poster="video-portada.jpg" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture></video>
+            <video id="video-tele" src="video.mp4" poster="video-portada.jpg" muted loop playsinline webkit-playsinline preload="none" disablepictureinpicture></video>
           </div>
           <svg class="tv-trazo" viewBox="0 0 300 240" fill="none" stroke="#8f1734" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M150 44 L150 22"/><path d="M150 22 c-5-8-16-4-13 3 2 5 13 11 13 11 s11-6 13-11 c3-7-8-11-13-3z" fill="#8f1734"/>
@@ -773,7 +774,10 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
       playerVars:{ autoplay:0, controls:0, disablekb:1, loop:1, playlist:YOUTUBE_ID, playsinline:1, start:YOUTUBE_INICIO, rel:0 },
       events:{ onReady:function(){ ytListo = true; } } });
   };
-  if(YOUTUBE_ID){ var s=document.createElement('script'); s.src='https://www.youtube.com/iframe_api'; s.async=true; document.head.appendChild(s); }
+  if(YOUTUBE_ID){
+    var cargarYT = function(){ var s=document.createElement('script'); s.src='https://www.youtube.com/iframe_api'; s.async=true; document.head.appendChild(s); };
+    if(document.readyState === 'complete') setTimeout(cargarYT, 1500); else window.addEventListener('load', function(){ setTimeout(cargarYT, 1500); });
+  }
 
   function estado(on){ btn.setAttribute('aria-pressed', on?'true':'false'); btn.setAttribute('aria-label', on?'Pausar la música':'Activar la música'); }
   function tocarMusica(on){
