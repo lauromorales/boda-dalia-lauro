@@ -664,7 +664,7 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
         <div class="campo">
           <label for="r-personas">¿Cuántas personas vienen, contándote?</label>
           <select id="r-personas" name="personas">
-            <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+            <option>1</option><option selected>2</option>
           </select>
         </div>
         <fieldset class="campo">
@@ -677,6 +677,10 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
         <div class="campo">
           <label for="r-alergias">Alergias o restricciones de comida <small>(opcional)</small></label>
           <input id="r-alergias" name="alergias" type="text" maxlength="300" placeholder="Ej. vegetariano, sin nueces">
+        </div>
+        <div class="campo">
+          <label for="r-cancion">¿Qué canción o canciones te hacen bailar? <small>(opcional)</small></label>
+          <input id="r-cancion" name="cancion" type="text" maxlength="300" placeholder="Ej. Bailando, Shakira, Moments…">
         </div>
       </div>
       <div class="campo">
@@ -842,6 +846,21 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
     setTimeout(function(){ document.getElementById('r-nombre').focus({preventScroll:true}); }, 400);
   });
   document.getElementById('r-nombre').addEventListener('input', function(){ err.hidden = true; });
+  // Cupo: 2 lugares para todos; 3 solo para los grupos con tres lugares (o con ?cupo=3 en el link).
+  var selP = document.getElementById('r-personas');
+  var cupoLink = /[?&]cupo=3(&|$)/.test(location.search);
+  function cupoTres(n){
+    n = n.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    return cupoLink || /yaheel|yahmila|yadhiel|larry|francisca/.test(n);
+  }
+  function ajustarCupo(){
+    var tres = cupoTres(document.getElementById('r-nombre').value);
+    var hay = selP.options.length === 3;
+    if(tres && !hay){ var o = document.createElement('option'); o.text = '3'; selP.add(o); }
+    if(!tres && hay){ selP.remove(2); }
+  }
+  document.getElementById('r-nombre').addEventListener('input', ajustarCupo);
+  ajustarCupo();
   function sincronizar(){ document.getElementById('si-asiste').hidden = document.getElementById('r-no').checked; }
   document.getElementById('r-si').addEventListener('change', sincronizar);
   document.getElementById('r-no').addEventListener('change', sincronizar);
@@ -858,6 +877,7 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
       personas: asiste === 'Sí' ? document.getElementById('r-personas').value : '0',
       misa: asiste === 'Sí' && misa ? 'Sí' : 'No', fiesta: asiste === 'Sí' && fiesta ? 'Sí' : 'No',
       alergias: asiste === 'Sí' ? document.getElementById('r-alergias').value.trim() : '',
+      cancion: asiste === 'Sí' ? document.getElementById('r-cancion').value.trim() : '',
       telefono: document.getElementById('r-telefono').value.trim(),
       mensaje: document.getElementById('r-mensaje').value.trim(),
       sitio: document.getElementById('r-sitio').value

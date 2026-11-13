@@ -25,7 +25,8 @@ function doPost(e) {
     p.fiesta === 'Sí' ? 'Sí' : 'No',
     limpio_(p.telefono, 30),
     limpio_(p.alergias, 300),
-    limpio_(p.mensaje, 1000)
+    limpio_(p.mensaje, 1000),
+    limpio_(p.cancion, 300)
   ];
 
   var candado = LockService.getScriptLock();
