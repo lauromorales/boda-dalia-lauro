@@ -882,14 +882,16 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
       mensaje: document.getElementById('r-mensaje').value.trim(),
       sitio: document.getElementById('r-sitio').value
     });
+    // Con una sola persona se usa su nombre en el mensaje; con varias, no (saldría una lista larga).
+    var unaPersona = asiste === 'Sí' ? document.getElementById('r-personas').value === '1' : !/\s(y|e)\s|[,&+]/i.test(nombre);
     enviar.disabled = true; enviar.textContent = 'Enviando…';
     fetch(URL_CONFIRMACIONES, { method:'POST', mode:'no-cors', body: datos })
       .then(function(){
         formR.hidden = true; abrirForm.hidden = true; gracias.hidden = false;
         document.getElementById('gracias-titulo').textContent = asiste === 'Sí' ? '¡Gracias, nos vemos ahí!' : '¡Gracias por avisarnos!';
         document.getElementById('gracias-texto').textContent = asiste === 'Sí'
-          ? 'Ya quedó tu confirmación. Te esperamos con mucho cariño.'
-          : 'Te vamos a extrañar. Gracias por decirnos.';
+          ? 'Ya quedó tu confirmación' + (unaPersona ? ', ' + nombre : '') + '. Te esperamos con mucho cariño.'
+          : 'Te vamos a extrañar' + (unaPersona ? ', ' + nombre : '') + '. Gracias por decirnos.';
       })
       .catch(function(){
         err.textContent = 'No se pudo enviar. Revisa tu conexión e inténtalo otra vez.'; err.hidden = false;
