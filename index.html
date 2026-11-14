@@ -650,8 +650,8 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
     </button>
     <form class="rsvp" id="form-rsvp" hidden novalidate>
       <div class="campo">
-        <label for="r-nombre">Tu nombre o el de tu familia</label>
-        <input id="r-nombre" name="nombre" type="text" autocomplete="name" maxlength="120" required placeholder="Ej. Familia Cantú">
+        <label for="r-nombre">Nombre de cada persona que asistirá <small>(escribe a todos los que vienen)</small></label>
+        <input id="r-nombre" name="nombre" type="text" autocomplete="name" maxlength="200" required placeholder="Ej. Ana Cantú y Luis Pérez">
       </div>
       <fieldset class="campo">
         <legend>¿Nos acompañas?</legend>
@@ -867,7 +867,7 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
   formR.addEventListener('submit', function(e){
     e.preventDefault(); err.hidden = true;
     var nombre = document.getElementById('r-nombre').value.trim();
-    if(!nombre){ err.textContent = 'Escribe tu nombre para saber quién confirma.'; err.hidden = false; document.getElementById('r-nombre').focus(); return; }
+    if(!nombre){ err.textContent = 'Escribe el nombre de quienes asistirán.'; err.hidden = false; document.getElementById('r-nombre').focus(); return; }
     var asiste = document.getElementById('r-no').checked ? 'No' : 'Sí';
     var misa = document.getElementById('r-misa').checked, fiesta = document.getElementById('r-fiesta').checked;
     if(asiste === 'Sí' && !misa && !fiesta){ err.textContent = 'Marca al menos un evento al que vienes.'; err.hidden = false; return; }
@@ -888,8 +888,8 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
         formR.hidden = true; abrirForm.hidden = true; gracias.hidden = false;
         document.getElementById('gracias-titulo').textContent = asiste === 'Sí' ? '¡Gracias, nos vemos ahí!' : '¡Gracias por avisarnos!';
         document.getElementById('gracias-texto').textContent = asiste === 'Sí'
-          ? 'Ya quedó tu confirmación, ' + nombre + '. Te esperamos con mucho cariño.'
-          : 'Te vamos a extrañar, ' + nombre + '. Gracias por decirnos.';
+          ? 'Ya quedó tu confirmación. Te esperamos con mucho cariño.'
+          : 'Te vamos a extrañar. Gracias por decirnos.';
       })
       .catch(function(){
         err.textContent = 'No se pudo enviar. Revisa tu conexión e inténtalo otra vez.'; err.hidden = false;

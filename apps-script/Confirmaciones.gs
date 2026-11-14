@@ -10,7 +10,7 @@ function doPost(e) {
   // Campo trampa: si un robot lo llena, se ignora la respuesta.
   if (p.sitio) return respuesta_({ ok: true });
 
-  var nombre = limpio_(p.nombre, 120);
+  var nombre = limpio_(p.nombre, 200);
   if (!nombre) return respuesta_({ ok: false, error: 'Falta el nombre' });
 
   var asiste = p.asiste === 'No' ? 'No' : 'Sí';
