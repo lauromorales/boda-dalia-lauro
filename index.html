@@ -890,8 +890,8 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
         formR.hidden = true; abrirForm.hidden = true; gracias.hidden = false;
         document.getElementById('gracias-titulo').textContent = asiste === 'Sí' ? '¡Gracias, nos vemos ahí!' : '¡Gracias por avisarnos!';
         document.getElementById('gracias-texto').textContent = asiste === 'Sí'
-          ? 'Ya quedó tu confirmación' + (unaPersona ? ', ' + nombre : '') + '. Te esperamos con mucho cariño.'
-          : 'Te vamos a extrañar' + (unaPersona ? ', ' + nombre : '') + '. Gracias por decirnos.';
+          ? (unaPersona ? 'Ya quedó tu confirmación, ' + nombre + '. Te esperamos con mucho cariño.' : 'Ya quedó su confirmación. Los esperamos con mucho cariño.')
+          : (unaPersona ? 'Te vamos a extrañar, ' + nombre + '. Gracias por decirnos.' : 'Los vamos a extrañar. Gracias por decirnos.');
       })
       .catch(function(){
         err.textContent = 'No se pudo enviar. Revisa tu conexión e inténtalo otra vez.'; err.hidden = false;
