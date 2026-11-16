@@ -823,12 +823,19 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
       var ang = -Math.PI/2 + (Math.random() - .5) * Math.PI * 1.15, vel = 8 + Math.random() * 13;
       piezas.push({ x: ox, y: oy, vx: Math.cos(ang) * vel, vy: Math.sin(ang) * vel - 2,
         w: 6 + Math.random() * 6, h: 3 + Math.random() * 5, rot: Math.random() * 6.3, vr: (Math.random() - .5) * .35,
-        fase: Math.random() * 6.3, g: .09 + Math.random() * .1, color: colores[i % colores.length], redondo: i % 5 === 0 });
+        fase: Math.random() * 6.3, g: .05 + Math.random() * .06, color: colores[i % colores.length], redondo: i % 5 === 0 });
     }
-    var t0 = null, TOPE = 15000; // sin desvanecer: cada papelito cae hasta salir por abajo
+    var t0 = null, TOPE = 24000, LLUVIA = 5000, ultima = 0; // sin desvanecer: cada papelito cae hasta salir por abajo
     function paso(t){
       if(t0 === null) t0 = t;
       var e = t - t0, vivas = 0, k, q;
+      // Después del estallido sigue lloviendo confeti desde arriba unos segundos.
+      if(e < LLUVIA && e - ultima > 55){
+        ultima = e;
+        for(k = 0; k < 2; k++) piezas.push({ x: Math.random() * W, y: -12, vx: (Math.random() - .5) * 1.5, vy: 1 + Math.random() * 2,
+          w: 6 + Math.random() * 6, h: 3 + Math.random() * 5, rot: Math.random() * 6.3, vr: (Math.random() - .5) * .35,
+          fase: Math.random() * 6.3, g: .05 + Math.random() * .06, color: colores[piezas.length % colores.length], redondo: piezas.length % 5 === 0 });
+      }
       ctx.clearRect(0, 0, W, H);
       for(k = 0; k < piezas.length; k++){
         q = piezas[k];
@@ -839,7 +846,7 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
         if(q.redondo){ ctx.beginPath(); ctx.arc(0, 0, q.h, 0, 6.3); ctx.fill(); } else ctx.fillRect(-q.w/2, -q.h/2, q.w, q.h);
         ctx.restore();
       }
-      if(vivas && e < TOPE) requestAnimationFrame(paso); else if(c.parentNode) c.parentNode.removeChild(c);
+      if((vivas || e < LLUVIA) && e < TOPE) requestAnimationFrame(paso); else if(c.parentNode) c.parentNode.removeChild(c);
     }
     requestAnimationFrame(paso);
   }
