@@ -756,7 +756,7 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
   // ====== DATOS PARA EDITAR ======
   var FECHA_BODA = '2027-02-27T16:00:00-06:00'; // misa, hora de Monterrey
   var YOUTUBE_ID = 'HrZi18BoomE'; // canción de YouTube (suena con el reproductor oculto)
-  var YOUTUBE_INICIO = 0;  // segundo en el que empieza
+  var YOUTUBE_INICIO = 17; // segundo en el que empieza: "I wanna be with you, I wanna feel your love"
   var CANCION = '';        // opcional: archivo propio, ej. 'cancion.mp3' (se usa si YouTube no carga)
   // ===============================
 
@@ -776,7 +776,9 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
   window.onYouTubeIframeAPIReady = function(){
     yt = new YT.Player('yt', { width:1, height:1, videoId:YOUTUBE_ID,
       playerVars:{ autoplay:0, controls:0, disablekb:1, loop:1, playlist:YOUTUBE_ID, playsinline:1, start:YOUTUBE_INICIO, rel:0 },
-      events:{ onReady:function(){ ytListo = true; } } });
+      events:{ onReady:function(){ ytListo = true; },
+        // Al repetirse la canción, vuelve a saltar el inicio.
+        onStateChange:function(ev){ if(YOUTUBE_INICIO && ev.data === 1 && yt.getCurrentTime && yt.getCurrentTime() < YOUTUBE_INICIO - 1) yt.seekTo(YOUTUBE_INICIO, true); } } });
   };
   if(YOUTUBE_ID){
     var cargarYT = function(){ var s=document.createElement('script'); s.src='https://www.youtube.com/iframe_api'; s.async=true; document.head.appendChild(s); };
