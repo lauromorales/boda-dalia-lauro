@@ -808,9 +808,46 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
     document.addEventListener('visibilitychange', function(){ if(!document.hidden && root.classList.contains('listo')) reproducirVideo(); });
   }
 
+  // Confeti al abrir el sobre: sale del sello y cae por la pantalla, con los colores de la invitación.
+  function confeti(){
+    var c = document.createElement('canvas'), ctx = c.getContext && c.getContext('2d');
+    if(!ctx || !window.requestAnimationFrame) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2), W = window.innerWidth, H = window.innerHeight;
+    c.width = W * dpr; c.height = H * dpr;
+    c.setAttribute('aria-hidden','true');
+    c.style.cssText = 'position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:9999';
+    document.body.appendChild(c); ctx.scale(dpr, dpr);
+    var r = sobre.getBoundingClientRect(), ox = r.left + r.width/2, oy = r.top + r.height/2;
+    var colores = ['#8f1734','#e2650c','#f0b43a','#5f8f2a','#556030','#f6d9a8'], piezas = [], i, n = W < 500 ? 110 : 160;
+    for(i = 0; i < n; i++){
+      var ang = -Math.PI/2 + (Math.random() - .5) * Math.PI * 1.15, vel = 7 + Math.random() * 11;
+      piezas.push({ x: ox, y: oy, vx: Math.cos(ang) * vel, vy: Math.sin(ang) * vel - 2,
+        w: 6 + Math.random() * 6, h: 3 + Math.random() * 5, rot: Math.random() * 6.3, vr: (Math.random() - .5) * .35,
+        fase: Math.random() * 6.3, color: colores[i % colores.length], redondo: i % 5 === 0 });
+    }
+    var t0 = null, DUR = 4200;
+    function paso(t){
+      if(t0 === null) t0 = t;
+      var e = t - t0, vivas = 0, k, q;
+      ctx.clearRect(0, 0, W, H);
+      for(k = 0; k < piezas.length; k++){
+        q = piezas[k];
+        q.vx *= .985; q.vy = q.vy * .985 + .32; q.x += q.vx + Math.sin(e / 300 + q.fase) * .9; q.y += q.vy; q.rot += q.vr;
+        if(q.y > H + 20) continue; vivas++;
+        ctx.save(); ctx.globalAlpha = e > DUR - 900 ? Math.max(0, (DUR - e) / 900) : 1;
+        ctx.translate(q.x, q.y); ctx.rotate(q.rot); ctx.scale(1, Math.cos(e / 140 + q.fase)); ctx.fillStyle = q.color;
+        if(q.redondo){ ctx.beginPath(); ctx.arc(0, 0, q.h, 0, 6.3); ctx.fill(); } else ctx.fillRect(-q.w/2, -q.h/2, q.w, q.h);
+        ctx.restore();
+      }
+      if(vivas && e < DUR) requestAnimationFrame(paso); else if(c.parentNode) c.parentNode.removeChild(c);
+    }
+    requestAnimationFrame(paso);
+  }
+
   function abrir(){
     if(abierto) return; abierto = true;
     var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reducido){ try{ confeti(); }catch(e){} }
     root.classList.add('abierto');
     if(doc) doc.classList.remove('cerrada');
     setTimeout(function(){ root.classList.add('saliendo'); }, reducido ? 0 : 900);
