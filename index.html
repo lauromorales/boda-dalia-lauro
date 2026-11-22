@@ -328,8 +328,7 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
 .doc.cerrada #entrada ~ *{display:none!important}
 .doc.cerrada{padding-bottom:0}
 /* Estado abierto */
-.fotos-tele{display:none;position:relative;width:100%;height:clamp(170px,48vw,230px);margin-top:18px}
-.listo .fotos-tele{display:block;animation:aparece 1s .6s ease-out both}
+.fotos-tele{position:relative;width:100%;height:clamp(170px,48vw,230px);margin:clamp(36px,10vw,60px) 0 clamp(16px,5vw,32px)}
 .fotos-tele .m1{bottom:auto;top:0}.fotos-tele .m3{bottom:auto;top:10%}.fotos-tele .m2{bottom:0}
 .fotos-tele .cinta{bottom:22%}
 .listo .marca,.listo .tele{display:block}
@@ -425,12 +424,6 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
           </svg>
         </div>
       </div>
-      <div class="fotos-tele">
-        <div class="cinta" aria-hidden="true"></div>
-        <div class="marco m1"><div class="ph"><img src="foto-cargando.jpg" alt="Lauro cargando a Dalia junto a una alberca en la selva" loading="lazy"></div></div>
-        <div class="marco m3"><div class="ph"><img src="foto-ventana.jpg" alt="Dalia y Lauro sentados frente a una ventana redonda" loading="lazy"></div></div>
-        <div class="marco m2"><div class="ph"><img src="foto-beso.jpg" alt="Dalia y Lauro a punto de besarse" loading="lazy"></div></div>
-      </div>
     </div>
 
     <div class="abajo">
@@ -456,6 +449,12 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
           <a class="mapa" href="#itinerario">Ver itinerario y ubicaciones ↓</a>
         </div>
       </div>
+    </div>
+    <div class="fotos-tele rev">
+      <div class="cinta" aria-hidden="true"></div>
+      <div class="marco m1"><div class="ph"><img src="foto-cargando.jpg" alt="Lauro cargando a Dalia junto a una alberca en la selva" loading="lazy"></div></div>
+      <div class="marco m3"><div class="ph"><img src="foto-ventana.jpg" alt="Dalia y Lauro sentados frente a una ventana redonda" loading="lazy"></div></div>
+      <div class="marco m2"><div class="ph"><img src="foto-beso.jpg" alt="Dalia y Lauro a punto de besarse" loading="lazy"></div></div>
     </div>
   </section>
 
