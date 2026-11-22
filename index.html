@@ -337,16 +337,19 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
 .g-polaroid .ph{aspect-ratio:1;height:auto;background:linear-gradient(160deg,#9fbf6a,#4f6a2a)}
 .g-polaroid::before{content:"";position:absolute;top:-12px;left:50%;width:46%;height:24px;transform:translateX(-50%) rotate(-4deg);background:rgba(240,180,58,.72);box-shadow:0 1px 2px rgba(0,0,0,.08);z-index:1}
 .g-polaroid::after{content:"\2665";position:absolute;left:0;right:0;bottom:8px;text-align:center;color:var(--guinda);font-size:15px}
-.galeria.collage{height:clamp(285px,78vw,400px)}
-.g-grande{left:3%;top:5%;width:62%;aspect-ratio:4/3;padding:6px;background:#fffdf7;border:3px double var(--guinda);transform:rotate(-2.5deg);z-index:1}
+.galeria.collage{height:clamp(250px,66vw,340px)}
+.g-grande{left:3%;top:8%;width:66%;aspect-ratio:4/3;padding:6px;background:#fffdf7;border:3px double var(--guinda);transform:rotate(-2.5deg);z-index:1}
 .g-grande .ph{background:linear-gradient(160deg,#f3cd6e,#c58a18)}
-.g-ovalo{right:3%;top:0;width:31%;aspect-ratio:3/4;padding:7px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#f3dca6,#b48a45 40%,#6b4b1d 80%);z-index:2}
+.g-ovalo{right:3%;top:0;width:36%;aspect-ratio:3/4;padding:7px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#f3dca6,#b48a45 40%,#6b4b1d 80%);z-index:2}
 .g-ovalo .ph{border-radius:50%;background:linear-gradient(160deg,#e9a46a,#a5452a)}
-.g-sello{right:7%;bottom:3%;width:36%;aspect-ratio:1;padding:12px;transform:rotate(4deg);z-index:3;
-  background:radial-gradient(circle at 7px 7px,transparent 4.5px,#fffdf7 5px) -7px -7px/14px 14px}
-.g-sello .ph{background:linear-gradient(160deg,#c2405e,#6a0f26)}
-.g-cuadro{left:12%;bottom:0;width:33%;aspect-ratio:1;padding:6px;background:var(--olivo);transform:rotate(-6deg);z-index:2}
-.g-cuadro .ph{outline:1px solid rgba(255,250,235,.7);outline-offset:-4px;background:linear-gradient(160deg,#9fbf6a,#4f6a2a)}
+.galeria.sola{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px}
+.galeria.sola > div{position:relative}
+.g-sola{width:min(78%,380px);aspect-ratio:2/3;padding:10px 10px 10px;background:#fffdf7;transform:rotate(-1.8deg);box-shadow:0 18px 30px -14px rgba(58,26,31,.5)}
+.g-sola img{width:100%;height:100%;object-fit:cover;display:block}
+.galeria.sola figcaption{font-family:var(--mano);font-size:clamp(22px,6.4vw,30px);color:var(--guinda);transform:rotate(-2deg)}
+.banda-foto{position:relative;margin-inline:calc(50% - 50vw);width:100vw;height:clamp(150px,42vw,250px);margin-bottom:22px;display:grid;place-items:center;overflow:hidden;
+  background:linear-gradient(180deg,rgba(30,20,18,.25),rgba(30,20,18,.55)),var(--foto) var(--pos,50% 50%)/cover no-repeat}
+.banda-foto h2{margin:0;color:var(--perla);text-shadow:0 2px 14px rgba(0,0,0,.45);padding-inline:16px}
 .doc.cerrada #entrada ~ *{display:none!important}
 .doc.cerrada{padding-bottom:0}
 /* Estado abierto */
@@ -537,13 +540,13 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
 
   <!-- FOTOS: antes del código de vestimenta -->
   <div class="galeria duo rev" aria-label="Fotos de Dalia y Lauro">
-    <div class="g-arco"><div class="ph"><span>Foto 1</span></div></div>
-    <div class="g-polaroid"><div class="ph"><span>Foto 2</span></div></div>
+    <div class="g-arco"><div class="ph"><img src="foto-g-arco.jpg" alt="Lauro inclinando a Dalia para besarla en un prado" loading="lazy"></div></div>
+    <div class="g-polaroid"><div class="ph"><img src="foto-g-polaroid.jpg" alt="Lauro cargando a Dalia en brazos, en blanco y negro" loading="lazy"></div></div>
   </div>
 
   <!-- VESTIMENTA -->
   <section class="bloque" id="vestimenta">
-    <h2 class="c-verde rev">Código de vestimenta</h2>
+    <div class="banda-foto rev" style="--foto:url(foto-d-zapatos.jpg);--pos:30% 55%"><h2>Código de vestimenta</h2></div>
     <p class="sub rotulo rev">Civil y fiesta · domingo 28 · formal y de color</p>
     <p class="intro rev">Queremos una boda llena de color, como nosotros. Estas son ideas para inspirarte; lo que de verdad nos importa es que estés.</p>
 
@@ -625,6 +628,12 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
     <p class="nota rev">Es el promedio de finales de febrero en Monterrey. De día se está a gusto, pero en la noche refresca de verdad: trae algo para taparte.</p>
   </section>
 
+  <!-- FOTO SOLA: antes de regalos -->
+  <figure class="galeria sola rev">
+    <div class="g-sola"><img src="foto-g-sola.jpg" alt="Dalia en brazos de Lauro, mirándose y sonriendo en un prado" loading="lazy"></div>
+    <figcaption>contigo, todo es más bonito</figcaption>
+  </figure>
+
   <!-- REGALOS -->
   <section class="bloque" id="regalos">
     <svg class="ilus rev" viewBox="0 0 120 80" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -664,15 +673,13 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
 
   <!-- FOTOS: antes de confirmar asistencia -->
   <div class="galeria collage rev" aria-label="Fotos de Dalia y Lauro">
-    <div class="g-grande"><div class="ph"><span>Foto 3</span></div></div>
-    <div class="g-ovalo"><div class="ph"><span>Foto 4</span></div></div>
-    <div class="g-cuadro"><div class="ph"><span>Foto 5</span></div></div>
-    <div class="g-sello"><div class="ph"><span>Foto 6</span></div></div>
+    <div class="g-grande"><div class="ph"><img src="foto-g-grande.jpg" alt="Lauro cargando a Dalia, que ríe con el cabello al aire" loading="lazy"></div></div>
+    <div class="g-ovalo"><div class="ph"><img src="foto-g-ovalo.jpg" alt="Lauro abrazando a Dalia por la espalda, los dos sonriendo" loading="lazy"></div></div>
   </div>
 
   <!-- CONFIRMAR -->
   <section class="bloque" id="confirmar">
-    <h2 class="c-naranja rev">Confirma tu asistencia</h2>
+    <div class="banda-foto rev" style="--foto:url(foto-d-anillo.jpg);--pos:45% 50%"><h2>Confirma tu asistencia</h2></div>
     <button class="confirmar rev" type="button" id="abrir-form" aria-expanded="false" aria-controls="form-rsvp">
       <svg viewBox="20 18 170 124" aria-hidden="true"><g fill="none" stroke-linecap="round" stroke-linejoin="round">
 <g transform="rotate(-5 90 90)"><rect x="30" y="50" width="120" height="80" rx="5" stroke="#8f1734" stroke-width="2.4"/>
