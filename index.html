@@ -347,6 +347,16 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
 .g-sola{width:min(78%,380px);aspect-ratio:2/3;padding:10px 10px 10px;background:#fffdf7;transform:rotate(-1.8deg);box-shadow:0 18px 30px -14px rgba(58,26,31,.5)}
 .g-sola img{width:100%;height:100%;object-fit:cover;display:block}
 .galeria.sola figcaption{font-family:var(--mano);font-size:clamp(22px,6.4vw,30px);color:var(--guinda);transform:rotate(-2deg)}
+.galeria.trio{height:clamp(330px,96vw,470px)}
+.trio .g-arco{width:44%}
+.trio .g-polaroid{width:42%;bottom:4%}
+.g-sello{left:8%;bottom:0;width:36%;aspect-ratio:1;padding:12px;transform:rotate(-5deg);z-index:3;
+  background:radial-gradient(circle at 7px 7px,transparent 4.5px,#fffdf7 5px) -7px -7px/14px 14px}
+.g-sello .ph{background:linear-gradient(160deg,#c2405e,#6a0f26)}
+.panoramica{position:relative;margin:var(--aire) calc(50% - 50vw) 0;width:100vw;height:clamp(260px,78vw,520px);overflow:hidden}
+.panoramica img{width:100%;height:100%;object-fit:cover;object-position:52% 60%;display:block}
+.panoramica::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,26,16,.6))}
+.panoramica figcaption{position:absolute;left:16px;right:16px;bottom:16px;z-index:1;text-align:center;font-family:var(--mano);font-size:clamp(20px,5.8vw,28px);color:var(--perla);text-shadow:0 2px 10px rgba(0,0,0,.5)}
 .banda-foto{position:relative;margin-inline:calc(50% - 50vw);width:100vw;height:clamp(150px,42vw,250px);margin-bottom:22px;display:grid;place-items:center;overflow:hidden;
   background:linear-gradient(180deg,rgba(30,20,18,.25),rgba(30,20,18,.55)),var(--foto) var(--pos,50% 50%)/cover no-repeat}
 .banda-foto h2{margin:0;color:var(--perla);text-shadow:0 2px 14px rgba(0,0,0,.45);padding-inline:16px}
@@ -485,7 +495,7 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
 
   <!-- ITINERARIO -->
   <section class="bloque" id="itinerario">
-    <h2 class="c-naranja rev">Itinerario</h2>
+    <div class="banda-foto rev" style="--foto:url(foto-d-musgo.jpg);--pos:50% 45%"><h2>Itinerario</h2></div>
     <div class="dias rev">
       <div class="dia">
         <h3>Sábado 27</h3>
@@ -672,14 +682,15 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
   </section>
 
   <!-- FOTOS: antes de confirmar asistencia -->
-  <div class="galeria duo rev" aria-label="Fotos de Dalia y Lauro">
+  <div class="galeria duo trio rev" aria-label="Fotos de Dalia y Lauro">
     <div class="g-arco"><div class="ph"><img src="foto-g-arco.jpg" alt="Lauro inclinando a Dalia para besarla en un prado" loading="lazy"></div></div>
-    <div class="g-polaroid"><div class="ph"><img src="foto-g-polaroid.jpg" alt="Lauro cargando a Dalia en brazos, en blanco y negro" loading="lazy"></div></div>
+    <div class="g-sello"><div class="ph"><img src="foto-g-sello.jpg" alt="Dalia y Lauro a punto de besarse en el bosque" loading="lazy"></div></div>
+    <div class="g-polaroid"><div class="ph"><img src="foto-g-polaroid.jpg" alt="Dalia recargada en el pecho de Lauro junto a un río, los dos con los ojos cerrados" loading="lazy"></div></div>
   </div>
 
   <!-- CONFIRMAR -->
   <section class="bloque" id="confirmar">
-    <div class="banda-foto rev" style="--foto:url(foto-d-anillo.jpg);--pos:45% 50%"><h2>Confirma tu asistencia</h2></div>
+    <div class="banda-foto rev" style="--foto:url(foto-d-anillo.jpg);--pos:50% 60%"><h2>Confirma tu asistencia</h2></div>
     <button class="confirmar rev" type="button" id="abrir-form" aria-expanded="false" aria-controls="form-rsvp">
       <svg viewBox="20 18 170 124" aria-hidden="true"><g fill="none" stroke-linecap="round" stroke-linejoin="round">
 <g transform="rotate(-5 90 90)"><rect x="30" y="50" width="120" height="80" rx="5" stroke="#8f1734" stroke-width="2.4"/>
@@ -743,6 +754,12 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
     </div>
     <p class="limite rev">Te pedimos confirmar a más tardar el <span id="fecha-limite">31 de enero de 2027</span>.</p>
   </section>
+
+  <!-- PANORÁMICA: el bosque -->
+  <figure class="panoramica rev">
+    <img src="foto-g-bosque.jpg" alt="Dalia y Lauro abrazados junto a un árbol enorme y un río en el bosque" loading="lazy">
+    <figcaption>y aquí empieza nuestra historia para siempre</figcaption>
+  </figure>
 
   <!-- SECCIONES EXTRA -->
   <div class="secciones rev" id="dudas">
