@@ -342,6 +342,8 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
 .rasca-lienzo.fuera{opacity:0;pointer-events:none}
 .rasca-pista{margin:4px 0 0;text-align:center;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--tinta-suave);transition:opacity .6s}
 .rasca-pista.fuera{opacity:0}
+.video-ninos{width:min(78%,360px);margin:var(--aire) auto 0;padding:10px;background:#fffdf7;transform:rotate(-1.5deg);box-shadow:0 18px 30px -14px rgba(58,26,31,.5);outline:1px solid #c9a15a;outline-offset:-5px}
+.video-ninos video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#e9dcc3}
 .carrusel{width:100vw;margin:var(--aire) calc(50% - 50vw) 0}
 .carrusel .tira{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 15% 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .carrusel .tira::-webkit-scrollbar{display:none}
@@ -752,6 +754,11 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
     <p class="limite rev">Te pedimos confirmar a más tardar el <span id="fecha-limite">31 de enero de 2027</span>.</p>
   </section>
 
+  <!-- VIDEO: los novios de niños -->
+  <figure class="video-ninos rev">
+    <video id="video-ninos" src="video-ninos.mp4" poster="video-ninos-portada.jpg" muted loop playsinline webkit-playsinline preload="none" disablepictureinpicture aria-label="Dalia y Lauro de niños vestidos de novios, se abrazan y él la carga"></video>
+  </figure>
+
   <!-- SECCIONES EXTRA -->
   <div class="secciones rev" id="dudas">
     <details>
@@ -1065,6 +1072,16 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
         io.observe(ph);
       }
     });
+  })();
+
+  // Video de los niños: se reproduce solo cuando está en pantalla (ahorra datos)
+  (function(){
+    var v = document.getElementById('video-ninos'); if(!v) return;
+    var jugar = function(){ v.muted = true; var pr = v.play(); if(pr && pr.catch) pr.catch(function(){}); };
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ if(v.preload === 'none') v.preload = 'auto'; jugar(); } else v.pause(); }); }, {threshold:.35}).observe(v);
+    } else { v.preload = 'auto'; jugar(); }
+    v.addEventListener('click', jugar);
   })();
 
   // Cuenta regresiva
