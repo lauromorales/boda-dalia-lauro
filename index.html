@@ -336,27 +336,20 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
 .galeria .ph{position:relative;width:100%;height:100%;overflow:hidden;display:grid;place-items:center;background:linear-gradient(160deg,#e9c99a,#b98a52);color:#fffaf0;font-family:var(--rotulo);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
 .galeria .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .galeria > div{position:absolute;box-shadow:0 12px 22px -10px rgba(58,26,31,.45)}
-.galeria.duo{height:clamp(270px,80vw,400px)}
-.g-arco{left:5%;top:0;width:47%;aspect-ratio:3/4;padding:7px;border-radius:999px 999px 12px 12px;background:var(--perla);outline:1.5px solid #c9a15a;outline-offset:-4px;transform:rotate(-2deg);z-index:1}
-.g-arco .ph{border-radius:999px 999px 8px 8px;background:linear-gradient(160deg,#c2405e,#6a0f26)}
-.g-polaroid{right:5%;bottom:0;width:45%;padding:8px 8px 36px;background:#fffdf7;transform:rotate(5deg);z-index:2}
-.g-polaroid .ph{aspect-ratio:1;height:auto;background:linear-gradient(160deg,#9fbf6a,#4f6a2a)}
-.g-polaroid::before{content:"";position:absolute;top:-12px;left:50%;width:46%;height:24px;transform:translateX(-50%) rotate(-4deg);background:rgba(240,180,58,.72);box-shadow:0 1px 2px rgba(0,0,0,.08);z-index:1}
-.g-polaroid::after{content:"\2665";position:absolute;left:0;right:0;bottom:8px;text-align:center;color:var(--guinda);font-size:15px}
 .galeria.collage{height:clamp(250px,66vw,340px)}
 .g-grande{left:3%;top:8%;width:66%;aspect-ratio:4/3;padding:6px;background:#fffdf7;border:3px double var(--guinda);transform:rotate(-2.5deg);z-index:1}
 .g-grande .ph{background:linear-gradient(160deg,#f3cd6e,#c58a18)}
 .g-ovalo{right:3%;top:0;width:36%;aspect-ratio:3/4;padding:7px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#f3dca6,#b48a45 40%,#6b4b1d 80%);z-index:2}
 .g-ovalo .ph{border-radius:50%;background:linear-gradient(160deg,#e9a46a,#a5452a)}
-.galeria.trio{height:clamp(330px,96vw,470px)}
-.trio .g-arco{width:44%}
-.trio .g-polaroid{width:42%;bottom:4%}
-.g-diapo{right:3%;top:5%;width:50%;aspect-ratio:4/3;padding:13px;border-radius:12px;background:linear-gradient(145deg,#fbf3e2,#eadbbd);transform:rotate(7deg);z-index:1}
-.g-diapo::before{content:"";position:absolute;inset:5px;border:1px solid #c9a15a;border-radius:8px;pointer-events:none}
-.g-diapo .ph{border-radius:4px}
-.g-sello{left:8%;bottom:0;width:36%;aspect-ratio:1;padding:12px;transform:rotate(-5deg);z-index:3;
-  background:radial-gradient(circle at 7px 7px,transparent 4.5px,#fffdf7 5px) -7px -7px/14px 14px}
-.g-sello .ph{background:linear-gradient(160deg,#c2405e,#6a0f26)}
+.carrusel{width:100vw;margin:var(--aire) calc(50% - 50vw) 0}
+.carrusel .tira{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 15% 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.carrusel .tira::-webkit-scrollbar{display:none}
+.carrusel figure{flex:0 0 70%;max-width:340px;margin:0;aspect-ratio:4/5;scroll-snap-align:center;border-radius:6px;overflow:hidden;box-shadow:0 14px 24px -14px rgba(58,26,31,.5)}
+.carrusel img{width:100%;height:100%;object-fit:cover;display:block}
+.carrusel .puntos{display:flex;justify-content:center;gap:8px;margin-top:6px}
+.carrusel .puntos i{width:7px;height:7px;border-radius:50%;background:var(--linea,#d9c9b0);transition:background .3s,transform .3s}
+.carrusel .puntos i.on{background:var(--guinda);transform:scale(1.25)}
+.desliza-fotos{margin:10px 0 0;text-align:center;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--tinta-suave)}
 .banda-foto{position:relative;margin-inline:calc(50% - 50vw);width:100vw;height:clamp(150px,42vw,250px);margin-bottom:22px;display:grid;place-items:center;overflow:hidden;
   background:linear-gradient(180deg,rgba(30,20,18,.25),rgba(30,20,18,.55)),var(--foto) var(--pos,50% 50%)/cover no-repeat}
 .banda-foto h2{margin:0;color:var(--perla);text-shadow:0 2px 14px rgba(0,0,0,.45);padding-inline:16px}
@@ -675,12 +668,16 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
     </div>
   </section>
 
-  <!-- FOTOS: antes de confirmar asistencia -->
-  <div class="galeria duo trio rev" aria-label="Fotos de Dalia y Lauro">
-    <div class="g-arco"><div class="ph"><img src="foto-g-arco.jpg" alt="Lauro inclinando a Dalia para besarla en un prado" loading="lazy"></div></div>
-    <div class="g-diapo"><div class="ph"><img src="foto-g-diapo.jpg" alt="Lauro abrazando a Dalia por la espalda, sus manos con los anillos" loading="lazy"></div></div>
-    <div class="g-sello"><div class="ph"><img src="foto-g-sello.jpg" alt="Dalia y Lauro a punto de besarse en el bosque" loading="lazy"></div></div>
-    <div class="g-polaroid"><div class="ph"><img src="foto-g-polaroid.jpg" alt="Dalia recargada en el pecho de Lauro junto a un río, los dos con los ojos cerrados" loading="lazy"></div></div>
+  <!-- FOTOS: antes de confirmar asistencia (se deslizan) -->
+  <div class="carrusel rev" aria-label="Fotos de Dalia y Lauro, desliza para ver más">
+    <div class="tira" id="tira">
+      <figure><img src="foto-g-arco.jpg" alt="Lauro inclinando a Dalia para besarla en un prado" loading="lazy"></figure>
+      <figure><img src="foto-g-diapo.jpg" alt="Lauro abrazando a Dalia por la espalda, sus manos con los anillos" loading="lazy"></figure>
+      <figure><img src="foto-g-sello.jpg" alt="Dalia y Lauro a punto de besarse en el bosque" loading="lazy"></figure>
+      <figure><img src="foto-g-polaroid.jpg" alt="Dalia recargada en el pecho de Lauro junto a un río, los dos con los ojos cerrados" loading="lazy"></figure>
+    </div>
+    <div class="puntos" id="puntos" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+    <p class="desliza-fotos rotulo">desliza <span aria-hidden="true">→</span></p>
   </div>
 
   <!-- CONFIRMAR -->
@@ -1008,6 +1005,17 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
         enviar.disabled = false; enviar.textContent = 'Enviar confirmación';
       });
   });
+
+  // Carrusel de fotos: marca el punto de la foto que está al centro
+  var tira = document.getElementById('tira'), puntos = document.getElementById('puntos');
+  if(tira && puntos){
+    var marcar = function(){
+      var figs = tira.children, c = tira.scrollLeft + tira.clientWidth / 2, mejor = 0, dist = 1e9;
+      for(var i = 0; i < figs.length; i++){ var f = figs[i], d = Math.abs(f.offsetLeft + f.offsetWidth / 2 - c); if(d < dist){ dist = d; mejor = i; } }
+      for(var k = 0; k < puntos.children.length; k++) puntos.children[k].className = k === mejor ? 'on' : '';
+    };
+    tira.addEventListener('scroll', function(){ requestAnimationFrame(marcar); }, {passive:true});
+  }
 
   // Cuenta regresiva
   var meta = Date.parse(FECHA_BODA), d=document.getElementById('d'), h=document.getElementById('h'), m=document.getElementById('m');
