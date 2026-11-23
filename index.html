@@ -357,9 +357,10 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
 .carrusel .puntos i{width:7px;height:7px;border-radius:50%;background:var(--linea,#d9c9b0);transition:background .3s,transform .3s}
 .carrusel .puntos i.on{background:var(--guinda);transform:scale(1.25)}
 .desliza-fotos{margin:10px 0 0;text-align:center;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--tinta-suave)}
-.banda-foto{position:relative;margin-inline:calc(50% - 50vw);width:100vw;height:clamp(150px,42vw,250px);margin-bottom:22px;display:grid;place-items:center;overflow:hidden;
+.banda-foto{position:relative;margin-inline:calc(50% - 50vw);width:100vw;height:clamp(160px,46vw,260px);margin-bottom:clamp(28px,8vw,44px);display:grid;place-items:center;overflow:hidden;
   background:linear-gradient(180deg,rgba(30,20,18,.25),rgba(30,20,18,.55)),var(--foto) var(--pos,50% 50%)/cover no-repeat}
 .banda-foto h2{margin:0;color:var(--perla);text-shadow:0 2px 14px rgba(0,0,0,.45);padding-inline:16px}
+.banda-foto .sub{margin:8px 0 0;padding-inline:16px;color:#f6e7cf;text-shadow:0 1px 8px rgba(0,0,0,.6);font-size:clamp(9.5px,2.7vw,12px)}
 .doc.cerrada #entrada ~ *{display:none!important}
 .doc.cerrada{padding-bottom:0}
 /* Estado abierto */
@@ -551,8 +552,7 @@ h2{font-family:var(--mano);font-weight:600;font-size:clamp(32px,9vw,44px);color:
 
   <!-- VESTIMENTA -->
   <section class="bloque" id="vestimenta">
-    <div class="banda-foto rev" style="--foto:url(foto-d-zapatos.jpg);--pos:30% 55%"><h2>Código de vestimenta</h2></div>
-    <p class="sub rotulo rev">Civil y fiesta · domingo 28 · formal y de color</p>
+    <div class="banda-foto rev" style="--foto:url(foto-d-zapatos.jpg);--pos:30% 55%"><div><h2>Código de vestimenta</h2><p class="sub rotulo">Civil y fiesta · domingo 28 · formal y de color</p></div></div>
     <p class="intro rev">Queremos una boda llena de color, como nosotros. Estas son ideas para inspirarte; lo que de verdad nos importa es que estés.</p>
 
     <div class="tarjeta rev">
